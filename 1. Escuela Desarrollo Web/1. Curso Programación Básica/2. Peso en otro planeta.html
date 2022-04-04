@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+
+    <meta charset="utf-8">
+
+    <title>Mi peso en otro planeta</title>
+
+    <style media="screen">
+
+      html
+      {
+        font-size: 10px;
+      }
+
+      body
+      {
+        font-family: Lato;
+        color: white;
+        background-color: black;
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <h1>Tu peso en otro planeta</h1>
+    <p>En la tierra pesas distinto que en Marte o Jupiter</p>
+    <p id="peso_marte" style="font-size:2rem"> Tu peso en Marte guevón es: </p>
+    <p id="peso_jupiter" style="font-size:5rem">Tu peso en Jupiter guevón es: </p>
+
+    <script type="text/javascript">
+
+      var peso_usuario = parseInt(prompt("Cual es tu Peso?"))
+
+
+      const g_tierra = 9.8;
+      const g_marte = 3.7;
+      const g_jupiter = 24.8;
+
+      const peso_final_marte = parseInt(peso_usuario * g_marte / g_tierra);
+      const peso_final_jupiter = parseInt(peso_usuario * g_jupiter / g_tierra);
+
+      var peso_marteHTML = document.getElementById('peso_marte').innerHTML
+      document.getElementById('peso_marte').innerHTML = peso_marteHTML + peso_final_marte;
+
+      var peso_jupiterHTML = document.getElementById('peso_jupiter').innerHTML
+      document.getElementById('peso_jupiter').innerHTML = peso_jupiterHTML + peso_final_jupiter
+
+
+
+    </script>
+
+  </body>
+
+
+
+</html>
