@@ -36,7 +36,7 @@ lienzo.closePath();
 
 // Using the function
 
-dibujarLinea("grey", 300, 0, 300, 20);
+// dibujarLinea("grey", 200, 0, 300, 20);
 
 
 // How to create cycles
@@ -60,15 +60,25 @@ while (l < lineas)
 
 for (l = 0; l < lineas; l++)
 {
+    xi = 10 * l;
+    yf = 10 * (l+1);
+    dibujarLinea("white", xi, 0, 300, yf);
+    console.log("Linea " + l) 
+}
+
+
+/*
+for (l = 0; l < lineas; l++)
+{
     yi = 10 * l;
     xf = 10 * (l+1);
     dibujarLinea("white", 0, yi, xf, 300);
     console.log("Linea " + l) 
 }
-
-
-
+*/
 
 
 
 console.log(lienzo)
+
+
