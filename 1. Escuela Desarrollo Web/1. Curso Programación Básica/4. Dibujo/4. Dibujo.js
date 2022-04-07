@@ -105,6 +105,8 @@ function dibujoPorClick()
 }
 
 
+
+
 console.log(lienzo)
 
 

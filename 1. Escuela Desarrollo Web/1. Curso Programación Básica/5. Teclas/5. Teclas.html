@@ -1,43 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
 
-<head>
-   
-    <meta charset="UTF-8">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
 
     <title>Document</title>
-    
+
     <style media="screen">
+      html {
+        font-size: 20px;
+      }
 
-        html
-        {
-          font-size: 20px;
-        }
-  
-        body
-        {
-          font-family: Lato;
-          color: white;
-          background-color: black;
-        }
-  
-      </style>
-   
-</head>
+      body {
+        font-family: Lato;
+        color: white;
+        background-color: black;
+      }
+    </style>
+  </head>
 
-<body>
+  <body>
+    <canvas width="300" height="300" id="area_de_dibujo"></canvas>
 
-<canvas width="300" height="300" id="area_de_dibujo"></canvas>
+    <p>
+      Mueve las flechas del teclado para dibujar
+      <button
+        onclick="resetCanvas('area_de_dibujo')"
+        style="margin-left: 4rem">
+        Reset
+      </button>
+    </p>
 
-<p>Mueve las flechas del teclado para dibujar</p>
-
-<canvas width="300" height="300" id="area_de_dibujo_mouse"></canvas>
-
-<p>Click para dibujar</p>
-
-<script src="5. Teclas.js"></script>
+    <canvas
+      width="300"
+      height="300"
+      id="area_de_dibujo_mouse"
+      style="background-color: blue">
+    </canvas>
     
-</body>
+    <p>
+      Click para dibujar
+      <button
+        onclick="resetCanvas('area_de_dibujo_mouse')"
+        style="margin-left: 4rem">
+        Reset
+      </button>
+    </p>
 
+    <script src="5. Teclas.js"></script>
+  </body>
 </html>
-
