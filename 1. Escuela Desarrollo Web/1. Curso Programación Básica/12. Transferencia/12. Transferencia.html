@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style type="text/css">
+        body
+        {
+          font-family: Lato;
+          background-color: rgb(17, 17, 17);
+          color: white;
+        }
+        strong
+        {
+          background-color: rgb(228, 228, 228);
+        }
+  
+      </style>
+
+    <title>Transferencia</title>
+</head>
+
+<body>
+
+  <img src="12. Transferencia.png" alt="">
+  <p> Time speed from the Sims game :)</p>
+  <p id="hour_current"></p>
+  
+  <p id="balance_client_current">Balance: </p>
+
+  
+    <select id="client_bank">
+      <option value="" disabled selected>Select your bank</option>
+    </select>
+
+  
+  <input type="number" placeholder="$ to transfer" id="money_input">
+
+  <select id="receiver_bank">
+    <option value="" disabled selected>Select destination bank</option>
+  </select>
+  
+  <button id="transfer_button">Transfer</button>
+
+  <p id="fee"></p>
+  <p id="result"></p>
+
+  <script src="12. Transferencia.js"></script>
+
+</body>
+</html>
