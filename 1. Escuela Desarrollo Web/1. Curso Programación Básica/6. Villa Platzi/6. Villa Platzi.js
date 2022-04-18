@@ -183,11 +183,11 @@ var positionpx;
 var positionpy;
 
 function dibujar() {
-    if (fondo.cargaOK = true) {
+    if (fondo.cargaOK == true) {
         papel.drawImage(fondo.Image, 0, 0);
     }
 
-    if (fondo.cargaOK = true && vaca.cargaOK == true) {
+    if (fondo.cargaOK == true && vaca.cargaOK == true) {
         amountv = aleatorio(1,5);
         positionvx = Array(amountv);
         positionvy = Array(amountv);
@@ -205,7 +205,7 @@ function dibujar() {
        console.log(positionvy + " Cows y coords");
     }
 
-    if (fondo.cargaOK = true && cerdo.cargaOK == true) {
+    if (fondo.cargaOK == true && cerdo.cargaOK == true) {
         amountc = aleatorio(1,5);
         positioncx = Array(amountc);
         positioncy = Array(amountc);
@@ -219,7 +219,7 @@ function dibujar() {
         }
     }
 
-    if (fondo.cargaOK = true && pollo.cargaOK == true) {
+    if (fondo.cargaOK == true && pollo.cargaOK == true) {
         amountp = aleatorio(1,5);
         positionpx = Array(amountp);
         positionpy = Array(amountp);
@@ -233,7 +233,7 @@ function dibujar() {
         }
     }
 
-    if (fondo.cargaOK = true && chaerim.cargaOK == true) {
+    if (fondo.cargaOK == true && chaerim.cargaOK == true) {
         xch = aleatorio(0,420);
         ych = aleatorio(0,420);
         papel.drawImage(chaerim.Image, xch, ych); 
