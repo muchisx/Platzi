@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        body {
+            background: black;
+            margin: 0;
+        }
+        
+        .bloque1 {
+            background: white;
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+        }
+
+        a {
+            background-color: blue;            
+            /* these properties won't work because a-tag is an inline element */
+            width: 200px;
+            height: 200px;
+            /* these properties only apply in the horizontal line axis (inline) */
+            margin: 20px;
+        }
+
+        button {
+            background-color: green;
+            /* buttons are inline block and take properties from both attributes */
+            width: 200px;
+            height: 200px;
+        }
+
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="bloque1">bloque</div>
+    <a href="veme.com.co">en linea</a>
+    <button>inline block</button>
+</body>
+</html>
