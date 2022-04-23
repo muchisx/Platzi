@@ -500,84 +500,147 @@
             width: 100%;
             height: 100%;
             z-index: 2;
-            background-color: white;    
+            background-color: white;
+            padding: 16px 18px 20px;
+            box-sizing: border-box;
         }
 
             .shopping-cart {
                 display: grid;
-                
-            }
-            
-            .shopping-cart__items {
-                display: flex;
-                flex-direction: column;
-                gap: 24px;
-                align-items: center;
+
             }
 
-                .shopping-cart__item {
+                .shopping-cart__title {
+                    padding-left: 8px;
+                    box-sizing: border-box;
+                    display: none;
+                    gap: 24px;
                     width: 100%;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    position: relative;
                 }
 
-                    .shopping-cart__item-deleted-overlay {
-                        position: absolute;
-                        width: 100%;
-                        top: 0;
-                        left: 0;
-                        background-color: hsla(0, 0%, 85%, 0.16);
-                        height: 100%;
+                    .shopping-cart__title-img {
+                        width: 24px;
                     }
 
-                    .shopping-cart__item-deleted-text {
-                        opacity: 16%;
-                    }
-
-                    .shopping-cart__item-img-deleted {
-                        width: 76px;
-                        opacity: 25%;
-                    }
-
-                    .shopping-cart__item-img {
-                        width: 76px;
-                    }
-
-                    .shopping-cart__item-text {
-
-                    }
-
-                    .shopping-cart__item-price {
-
-                    }
-
-                    .shopping-cart__item-delete {
-                        width: 12px;
+                    .shopping-cart__title-text {
+                        font-weight: 700;
+                        font-size: 18px;
                     }
 
             
-            .shopping-cart__total {
-
-            }
-
-                .shopping-cart__total-text {
-
+                .shopping-cart__items {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 24px;
+                    align-items: center;
+                    margin-bottom: 24px;
                 }
 
-                .shopping-cart__total-price {
+                    .shopping-cart__item-deleted{
+                        width: 100%;
+                        display: flex;
+                        /* justify-content: space-between; */
+                        align-items: center;
+                        position: relative;
+                        gap: 18px;
+                    }
+                    
+                    .shopping-cart__item {
+                        width: 100%;
+                        display: flex;
+                        /* justify-content: space-between; */
+                        align-items: center;
+                        position: relative;
+                        gap: 18px;
+                    }
 
+                        .shopping-cart__item-deleted-overlay {
+                            position: absolute;
+                            width: 100%;
+                            top: 0;
+                            left: 0;
+                            background-color: hsla(0, 0%, 85%, 0.16);
+                            height: 100%;
+                            border-radius: 20px;
+                        }
+
+                        .shopping-cart__item-deleted-text {
+                            opacity: 16%;
+                            font-size: var(--md);
+                            font-weight: 500;
+                            color: #797979;;
+                        }
+
+                        .shopping-cart__item-img-deleted {
+                            width: 76px;
+                            border-radius: 20px;
+                            opacity: 24%;
+                            
+                        }
+
+                        .shopping-cart__item-img {
+                            width: 76px;
+                            border-radius: 20px;
+                            
+                        }
+
+                        .shopping-cart__item-text {
+                            font-size: var(--sm);
+                            font-weight: 400;
+                            color: #797979;;
+                        }
+
+                        .shopping-cart__item-price {
+                            font-size: var(--md);
+                            font-weight: 700;
+                            color: #404040;
+                            font-family: 'Roboto', sans-serif;
+                            margin-left: auto;
+                        }
+
+                        .shopping-cart__item-delete {
+                            width: 12px;
+                            margin-right: 8px;
+                        }
+
+                
+                .shopping-cart__total {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    background-color: #F7F7F7;
+                    border-radius: 10px;
+                    padding: 18px;
+                    margin-bottom: 18px;
                 }
 
+                    .shopping-cart__total-text {
+                        font-size: var(--md);
+                        font-weight: bold;
+                        color: var(--black);
+                    }
 
-            .shopping-cart__button {
+                    .shopping-cart__total-price {
+                        font-size: var(--md);
+                        font-weight: 700;
+                        color: #404040;
+                        font-family: 'Roboto', sans-serif;
+                    }
 
-            }
 
-                .shopping-cart_button-text {
-
+                .shopping-cart__button {
+                    display: flex;
+                    place-content: center;
+                    width: 340px;
+                    background-color: var(--hospital-green);
+                    border-radius: 10px;
+                    margin-bottom: 22px;
                 }
+
+                    .shopping-cart_button-text {
+                        font-size: var(--lg);
+                        color: var(--white);
+                    }
 
 
 
@@ -1015,6 +1078,24 @@
                 border-radius: 5px;
             }
 
+            .shopping-cart-container {
+                position: absolute;
+                overflow: hidden;
+                width: 400px;
+                right: 0;
+                top: -10px;
+                box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.119789);
+                border-radius: 5px;
+            }
+
+            .shopping-cart__title {
+                display: flex;
+            }
+
+            .shopping-cart__item-deleted {
+                display: none;
+            }
+
             .content {
                 padding-bottom: 150px;
             }
@@ -1210,6 +1291,11 @@
 
                         <div class="shopping-cart__items">
 
+                            <div class="shopping-cart__title">
+                                <img src="./Assets/Icons/big arrow.svg" alt="exit" class="shopping-cart__title-img">
+                                <p class="shopping-cart__title-text">Shopping cart</p>
+                            </div>
+
                             <div class="shopping-cart__item">
 
                                 <img src="./Assets/Images/round_shelf.png" alt="" class="shopping-cart__item-img">
@@ -1220,11 +1306,29 @@
                             </div>
                             
 
-                            <div class="shopping-cart__item">
+                            <div class="shopping-cart__item-deleted">
 
                                 <div class="shopping-cart__item-deleted-overlay"></div>
                                 <img src="./Assets/Images/round_shelf.png" alt="" class="shopping-cart__item-img-deleted">
                                 <p class="shopping-cart__item-deleted-text">REMOVED FROM CART</p>
+
+                            </div>
+
+                            <div class="shopping-cart__item">
+
+                                <img src="./Assets/Images/round_shelf.png" alt="" class="shopping-cart__item-img">
+                                <p class="shopping-cart__item-text">Round shelf</p>
+                                <p class="shopping-cart__item-price">$ 120,00</p>
+                                <img src="./Assets/Icons/icon_close.png" alt="" class="shopping-cart__item-delete">
+
+                            </div>
+
+                            <div class="shopping-cart__item">
+
+                                <img src="./Assets/Images/round_shelf.png" alt="" class="shopping-cart__item-img">
+                                <p class="shopping-cart__item-text">Round shelf</p>
+                                <p class="shopping-cart__item-price">$ 120,00</p>
+                                <img src="./Assets/Icons/icon_close.png" alt="" class="shopping-cart__item-delete">
 
                             </div>
 
