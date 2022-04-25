@@ -1,0 +1,33 @@
+/*  --------------------------------------------------
+                MUCHISX'S CSS RESET
+ -------------------------------------------------- */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 6.25%;
+}
+
+body {
+    font-size: 16rem;
+    background: black;
+    color: white;
+    font-family: "Poppins";
+}
+
+/*  --------------------------------------------------
+                MAIN CSS BELOW
+ -------------------------------------------------- */
+
+ .picture {
+     width: 500px;
+     height: 400px;
+ }
+
+ img {
+     width: 100%;
+ }
