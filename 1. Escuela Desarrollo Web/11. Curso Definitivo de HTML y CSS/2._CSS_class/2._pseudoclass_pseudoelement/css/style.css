@@ -1,0 +1,42 @@
+body {
+    background: black;
+    color: white;
+    font-family: "poppins";
+    margin: 0;
+}
+
+/* Class Stuff */
+
+.main-nav {
+    margin-top: 10px;
+    list-style: none;
+    padding: 0;
+    background: beige;
+}
+
+    .main-nav__item {
+        display: inline-block;
+    }
+
+    .main-nav__item a {
+        color: brown;
+        padding: 5px;
+        background: white;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+
+    .main-nav__item a:hover {
+        color: rgb(167, 133, 133);
+    }
+
+    .main-nav__item a:active {
+        color: rgb(0, 0, 0);
+    }
+
+    .main-nav__item a::after {
+        content: " | ";
+    }
+
+
+    

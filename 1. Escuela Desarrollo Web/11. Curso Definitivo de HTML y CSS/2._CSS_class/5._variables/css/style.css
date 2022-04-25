@@ -1,0 +1,50 @@
+:root {
+    --primary-color: grey;
+    --secondary-color: lightskyblue;
+    --header-size: 4rem;
+    --font: 1.8rem;
+}
+
+body {
+    background: black;
+    color: white;
+    font-family: "Poppins";
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    font-size: 62.5%;
+}
+
+/* Class Stuff */
+
+header {
+    width: 100vw;
+    height: 15vh;
+    background: var(--primary-color);
+}
+
+main {
+    width: 100vh;
+    height: 70vh;
+    font-size: var(--font);
+}
+
+h1 {
+    font-size: var(--header-size);
+    color: var(--primary-color);
+}
+
+footer {
+    width: 100vw;
+    height: 15vh;
+    background-color: var(--secondary-color);
+}

@@ -1,0 +1,101 @@
+/*  --------------------------------------------------
+                MUCHISX'S CSS RESET
+ -------------------------------------------------- */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 6.25%;
+}
+
+body {
+    font-size: 16rem;
+    background: black;
+    color: white;
+    font-family: "Poppins";
+}
+
+/*  --------------------------------------------------
+                MAIN CSS BELOW
+ -------------------------------------------------- */
+:root {
+    --gap1: 20px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    /* gap: var(--gap1); */
+    margin: 20px;
+    /* align-items: center; */
+}
+
+    .c1,
+    .c2,
+    .c3,
+    .c4,
+    .c5 {
+        width: 100%;
+        /* min-width: 150px; */
+        height: 150px;
+        border-radius: 10px;
+        /* margin: 20px; */
+    }
+
+    .c1 {
+        background: #003476;
+    }
+
+    .c2 {
+        background: #0062d2;
+    }
+    
+
+    .c3 {
+        background: #b4d2f7;
+    }
+
+    .c4 {
+        background: #d5dfef;
+    }
+
+    .c5 {
+        background: #abadb1;
+    }
+
+/* @media (min-width: 600px) {
+    .c2,
+    .c3,
+    .c4 {
+        width: 50%;
+    }
+} */
+
+/* @media (min-width: 800px) {
+
+    .container {
+        width: 800px;
+        margin: 0 auto;
+    }
+
+    .c1 {
+        width: 60%;
+    }
+
+    .c2 {
+        width: 40%;
+    }
+
+    .c3, 
+    .c4 {
+        width: 33.333333%;
+    }
+
+    .c5 {
+        width: 33.33333%;
+    }
+} */

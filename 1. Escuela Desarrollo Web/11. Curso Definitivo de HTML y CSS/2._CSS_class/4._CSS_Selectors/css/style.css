@@ -1,0 +1,29 @@
+body {
+    background: black;
+    color: white;
+    font-family: "poppins";
+    margin: 0;
+    padding: 0;
+}
+
+/* Class Stuff */
+
+h2 + p::after {
+    color: blue;
+    content: " <- if you see this my close brother is an h2";
+}
+
+h5 ~ a::after {
+    color: pink;
+    content: " <- if you see this i have an h5 brother anywhere above me";
+}
+
+article > h1::after {
+    color: pink;
+    content: " <- if you see this i have a direct <article> parent";
+}
+
+form p::after {
+    color: pink;
+    content: " <- if you see this i have an <form> parent somewhere";
+}

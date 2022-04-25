@@ -1,0 +1,39 @@
+:root {
+    --primary-color: grey;
+    --secondary-color: lightskyblue;
+    --header-size: 4rem;
+    --font: 1.8rem;
+    
+}
+
+/*  --------------------------------------------------
+                MUCHISX'S CSS RESET
+ -------------------------------------------------- */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 6.25%;
+}
+
+body {
+    font-size: 16rem;
+    background: black;
+    color: white;
+    font-family: "Poppins";
+    margin: 0;
+    padding: 0;
+}
+
+/*  --------------------------------------------------
+                MAIN CSS BELOW
+ -------------------------------------------------- */
+
+
+
+/* Class Stuff */
+

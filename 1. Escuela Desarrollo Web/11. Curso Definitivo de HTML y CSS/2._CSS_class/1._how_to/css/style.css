@@ -1,0 +1,65 @@
+body {
+    background: black;
+    color: white;
+    font-family: "poppins";
+}
+
+/* Class Stuff */
+
+
+
+
+
+
+p {
+    color: blue;
+}
+
+.p-test-class {
+    color: yellow;
+}
+
+#p-test-id {
+    color: rgb(226, 12, 180);
+}
+
+.shopping-list-container{
+    display: grid;
+    background-color: bisque;
+    color: black;
+    box-sizing: border-box;
+    margin: 40px;
+    border-radius: 20px;
+}
+
+    .shopping-list-title {
+        justify-self: center;
+    }
+
+    .shopping-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: 
+            "a b c";
+    }
+
+        .a-area,
+        .a-area-end {
+            grid-area: a-start;
+        }
+
+        .b-area,
+        .b-area-end {
+            grid-area: b;
+        }
+
+        .c-area,
+        .c-area-end {
+            grid-area: c;
+        }
+
+        .a-area-end,
+        .b-area-end,
+        .c-area-end {
+            margin-top: 25px;
+        }
