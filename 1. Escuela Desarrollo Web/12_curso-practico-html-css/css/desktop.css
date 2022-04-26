@@ -1,0 +1,169 @@
+@media (min-width: 950px) {
+
+/*=============================================
+-->                Header                  <--
+=============================================*/
+
+    .nav-container {
+        justify-content: right;
+    }
+
+
+        /* --------------NAV LEFT---------- */
+
+        .nav__menu {
+            display: none;
+        }
+
+            .nav__menu-img,
+        .nav__all,
+        .nav__images {
+            display: none;
+        }
+
+        .nav__gmail-desktop,
+        .nav__images-desktop {
+            font-size: 13rem;
+            font-family: Arial, sans-serif;
+            color: rgba(0,0,0,.87);
+            line-height: 24px;
+            display: inline-block;
+            font-weight: normal;
+        }
+
+        .nav__gmail-desktop:hover,
+        .nav__images-desktop:hover {
+            text-decoration: underline;
+        }
+        
+
+
+            /* --------------NAV RIGHT---------- */
+
+
+            .nav__right {
+                margin-left: 16px;
+            }
+
+
+
+/*=============================================
+-->            Main container               <--
+=============================================*/
+
+.main-container {
+    margin-bottom: 380px;
+}
+
+
+        /* --------------LOGO---------- */
+
+
+        .content__logo {
+
+        }
+
+            .content__logo-img {
+                width: 272px;
+            }
+
+        
+        /* --------------SEARCHBOX---------- */
+
+
+        .content__searchbox-container {
+            position: relative;
+        }
+
+            .content__searchbox {
+                max-width: 584px;
+            }
+
+            .content__searchbox:hover {
+                box-shadow: 0 1px 6px rgb(32 33 36 / 28%);
+            }
+
+                .content__searchbox-voice-img {
+                    display: none;
+                }
+
+                .content__searchbox-voice-img-desktop {
+                    display: block;
+                    width: 24px;
+                    height: 24px;
+                    cursor: pointer;
+                    position: relative;
+                }
+
+                /* .content__searchbox-voice-img-desktop:hover:after {
+                    content: "Voice search";
+                    background-color: #000;
+                    color: #fff;
+                    top: 10rem;
+                    position: absolute;
+                    white-space: nowrap;
+                    width: 50px;
+                    height: 50px;
+                } */
+
+
+        /* -------SEARCH BUTTONS DESKTOP-------*/
+
+
+        .content__search-buttons-desktop-container {
+            display: block;
+            margin-top: 12px;
+            width: 100%;
+        }
+
+            .search-buttons-desktop {
+                height: 72px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+                .search-button-desktop__search,
+                .search-button-desktop__lucky {
+                    cursor: pointer;
+                    text-align: center;
+                    margin: 11px 4px;
+                    padding: 0 16px;
+                    height: 36px;
+                    border-radius: 4px;
+                    border: 1px solid #f8f9fa;
+                    color: #3c4043;
+                    font-family: arial,sans-serif;
+                }
+
+                .search-button-desktop__search:hover,
+                .search-button-desktop__lucky:hover {
+                    box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
+                    background: #f8f9fa;
+                    border: 1px solid #dadce0;
+                    color: #202124;
+                }
+
+                /* .search-button-desktop__lucky {
+                    height: 36px;
+                } */
+            
+
+        /* --------------TRENDING------------ */
+
+
+        .trending-container {
+        display: none;
+        }
+
+}
+
+/*=============================================
+-->                Footer                  <--
+=============================================*/
+
+
+
+        .footer__section-B {
+            display: none;
+        }
