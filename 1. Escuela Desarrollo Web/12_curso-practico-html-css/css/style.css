@@ -1,0 +1,350 @@
+/*  --------------------------------------------------
+                MUCHISX'S CSS RESET
+ -------------------------------------------------- */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 6.25%;
+}
+
+body {
+    font-size: 16rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*  --------------------------------------------------
+                MAIN CSS BELOW
+ -------------------------------------------------- */
+
+:root {
+    --main-color: #202124;
+    --alt-color: white;
+}
+
+/*=============================================
+-->                Header                  <--
+=============================================*/
+
+.header-container {
+    position: relative;
+}
+
+    .nav-container {
+        margin: 0 16px;
+        display: flex;
+        align-items: center;
+        height: 48px;
+        font-family: "Roboto";
+        gap: 12rem;
+        font-weight: 600;
+        font-size: 12rem;
+    }
+
+
+        /* --------------NAV LEFT---------- */
+
+
+        .nav__menu {
+            position: relative;
+        }
+
+            .nav__menu-img {
+                fill: #70757a;
+                width: 24px;
+                height: 24px;
+            }
+
+        .nav__all {
+            color: #4285f4;
+            line-height: 48px;
+            padding: 0 8px;
+            border-bottom: 2px solid #4285f4 ;
+            
+        }
+
+        .nav__images {
+            color: #70757a;
+            line-height: 48px;
+            padding: 0 8px;
+        }
+
+
+        /* --------------NAV RIGHT---------- */
+
+        .nav__right {
+            display: flex;
+            margin-left: auto;
+            align-items: center;
+            
+        }
+        
+            .nav__right-apps {
+                display: flex;
+                align-items: center;
+            }
+
+                .nav__right-apps-img {
+                    fill: #70757a;
+                    width: 24px;
+                    height: 24px;
+                }
+
+            .nav__right-button {
+                background-color: #1a73e8;
+                border: none;
+                color: #ffffff;
+                min-width: 80px;
+                border-radius: 4px;
+                font-size: 14rem;
+                font-weight: 500;
+                letter-spacing: 0.25px;
+                margin-left: 20px;
+                padding: 8px 16px;
+                font-family: "Roboto";
+            }
+
+
+/*=============================================
+-->            Main container               <--
+=============================================*/
+
+        
+.main-container {
+    display: flex;
+    padding: 8px;
+    margin-bottom: 80px;
+}
+
+    .content-container {
+        padding: 20px 0 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+        /* --------------LOGO---------- */
+        
+
+        .content__logo {
+            width: 160px;
+            margin: 36px auto 18px;
+        }
+
+            .content__logo-img {
+                width: 160px;
+            }
+
+
+        /* --------------SEARCHBOX---------- */
+
+        
+        .content__searchbox-container {
+          width: 100%;   
+        }
+
+            .content__searchbox {
+                padding: 8px 8px;
+                display: flex;
+                border: 1px solid #dadce0;
+                border-radius: 20px;
+                background: white;
+                width: 100%;
+                justify-content: space-between;
+            }
+
+                .content__searchbox-search-img {
+                    fill: #70757a;
+                    width: 24px;
+                    height: 24px;
+                }
+
+                .content__searchbox-input {
+                    padding: 0 8px;
+                    border: none;
+                    width: 100%;
+                    caret-color: #70757a;
+                    font-size: 16rem;
+                    line-height: 24px;
+                    font-family: "Roboto";
+                    overflow-y: hidden;
+                    word-wrap: break-word;
+                }
+
+                .content__searchbox-input:focus {
+                    outline: none;
+                }
+
+                .content__searchbox-voice-img {
+                    fill: #70757a;
+                    width: 24px;
+                    height: 24px;
+                }
+
+
+        /* --------------TRENDING---------- */
+
+        
+        .trending-container {
+            position: relative;
+            width: 100%;
+            margin: 24px 0;
+        }
+
+            .trending {
+                display: flex;
+                flex-direction: column;
+                
+            }
+
+                .trending-header {
+                    display: flex;
+                    width: 100%;
+                    padding: 0 8px 14px 16px;
+                }
+
+                    .trending-header__title {
+                        font-family: "Roboto";
+                        font-size: 20rem;
+                        line-height: 28rem;
+                        font-weight: 400;
+                        color: #202124;
+                    }
+
+                    .trending-header__options-img {
+                        fill: #202124;
+                        width: 20px;
+                        margin-left: auto;
+                    }
+
+                
+                .trending-results {
+                    display: flex;
+                    flex-direction: column;
+                    /* align-items: center; */
+                    padding: 0 6px;
+                }
+
+                    .trending-result__item {
+                        display: flex;
+                        border-bottom: 1px solid #dadce0;
+                        padding: 12px 0;
+                    }
+
+                        .trending-result__item-img {
+                            fill: #202124;
+                            width: 20px;
+                            margin: 0 20px 0 16px;
+                        }
+
+                        .trending-result__item-text {
+                            font-family: "Roboto";
+                            font-size: 16rem;
+                            line-height: 20rem;
+                            /* font-weight: 400; */
+                            color: #202124;
+                        }
+
+
+/*=============================================
+-->                Footer                  <--
+=============================================*/
+
+.footer-container * {
+    font-family: "Roboto";
+}
+
+.footer-container {
+    position: relative;
+}
+
+    .footer-sections {
+        display: flex;
+        flex-direction: column;
+    }
+    
+        .footer__section-A {
+            background: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #dadce0;
+        }
+
+            .footer__section-A-text {
+                color: #70757a;
+                font-size: 12rem;
+            }
+
+                .footer__section-A-text span {
+                    background: linear-gradient(to right, #91ac47 5%, #645319 60%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+
+        .footer__section-B {
+            min-height: 40px;
+            background: #f2f2f2;
+            color: #70757a;
+            padding: 16px 0;
+            border-bottom: 1px solid #dadce0;
+        }
+
+            .footer__section-B-text {
+                display: none;
+            }
+
+        .footer__section-C {
+            background: #f2f2f2;
+            color: #70757a;
+            font-size: 12rem;
+            display: flex;
+            flex-direction: column;
+            padding: 16px 0;
+            border-bottom: 1px solid #dadce0;
+        }
+
+            .footer__section-C-text {
+                display: none;
+            }
+
+            .footer_section-C__disclaimers {
+                display: flex;
+                flex-direction: column;
+                gap: 12px 0;
+            }
+            
+                .footer_section-C__disclaimer-1 {
+                    display: flex;
+                    gap: 0 40px;
+                    justify-content: center;
+                }
+
+                .footer_section-C__disclaimer-2 {
+                    display: flex;
+                    gap: 0 40px;
+                    justify-content: center;
+                }
+
+                .footer_section-C__disclaimer-3 {
+                    display: flex;
+                    gap: 0 40px;
+                    justify-content: center;
+                    
+                }
+
+                .footer__disclaimer {
+
+                }
+
+
+
