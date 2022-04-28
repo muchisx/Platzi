@@ -126,7 +126,7 @@ header {
                     width: 12px;
                     height: 8px;
                     margin-left: 14px;
-                    background-image: url('./assets/icons/down-arrow.svg');
+                    background-image: url('../assets/icons/down-arrow.svg');
                     filter: brightness(0) saturate(100%) invert(6%) sepia(8%) saturate(856%) hue-rotate(349deg) brightness(99%) contrast(87%);
                 }
 
@@ -163,7 +163,7 @@ main {
             width: 195px;
             height: 195px;
             margin: 0 auto 50px;
-            background: url('./assets/img/Bitcoin.png') center/cover no-repeat;
+            background: url('../assets/img/Bitcoin.png') center/cover no-repeat;
         }
 
         .main-exchange-container__title {
@@ -216,9 +216,8 @@ main {
                     font-size: 18rem;
                     font-weight: 700;
                     line-height: 24rem;
-                    color: var(--bitcoin-orange);
-                    padding: 0 0 0 56px;
-                    text-align: left;
+                    color: var(--bitcoin-orange);   
+                    text-align: center;
                 }
 
                 .main-currency-table .blue-text {
@@ -276,7 +275,7 @@ main {
                                     height: 16px;
                                     margin: 0 0 0 10px;
                                     vertical-align: bottom;
-                                    background: url('./assets/icons/trending-down.svg') center/cover no-repeat;
+                                    background: url('../assets/icons/trending-down.svg') center/cover no-repeat;
                                 }
 
                                 .currency-table__container .up {
@@ -285,7 +284,7 @@ main {
                                     height: 16px;
                                     margin: 0 0 0 10px;
                                     vertical-align: bottom;
-                                    background: url('./assets/icons/trending-up.svg') center/cover no-repeat;
+                                    background: url('../assets/icons/trending-up.svg') center/cover no-repeat;
                                 }
 
                         
@@ -338,7 +337,7 @@ main {
             height: 25px;
             top: -12.5px;
             left: calc(50% - 20px);
-            background: url('./assets/icons/potato-chip.svg') center/cover no-repeat;
+            background: url('../assets/icons/potato-chip.svg') center/cover no-repeat;
 
         }
 
@@ -389,19 +388,19 @@ main {
                 }
 
                 .clock {
-                    background: url('./assets/icons/clock.svg') center/cover no-repeat;
+                    background: url('../assets/icons/clock.svg') center/cover no-repeat;
                 }
 
                 .eye {
-                    background: url('./assets/icons/eye.svg') center/cover no-repeat;
+                    background: url('../assets/icons/eye.svg') center/cover no-repeat;
                 }
 
                 .dollar {
-                    background: url('./assets/icons/dollar-sign.svg') center/cover no-repeat;
+                    background: url('../assets/icons/dollar-sign.svg') center/cover no-repeat;
                 }
 
                 .check {
-                    background: url('./assets/icons/check-circle.svg') center/cover no-repeat;
+                    background: url('../assets/icons/check-circle.svg') center/cover no-repeat;
                 }
 
                 .product__card-title {
@@ -427,7 +426,7 @@ main {
         width: 100%;
         min-width: 320px;
         height: 60vh;
-        background: url('./assets/img/bitcoinbaby2x.jpg') center/cover no-repeat;
+        background: url('../assets/img/bitcoinbaby2x.jpg') center/cover no-repeat;
     }
 
         .bitcoin-img-container h2 {
@@ -480,7 +479,13 @@ main {
                 overflow-x: scroll;
                 overscroll-behavior-x: contain;
                 scroll-snap-type: x proximity;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
             }
+
+                .plans-container__slider::-webkit-scrollbar {
+                    display: none;
+                }
 
                 .plans-container__card {
                     scroll-snap-align: center;
@@ -572,10 +577,42 @@ main {
                                     display: inline-block;
                                     width: 20px;
                                     height: 20px;
-                                    background: url('./assets/icons/orange-right-arrow.svg') center/cover no-repeat;
+                                    background: url('../assets/icons/orange-right-arrow.svg') center/cover no-repeat;
                                     vertical-align: text-bottom;
                         
                                 }
+
+
+ /*=============================================
+ -->                  MAIN                  <--
+ =============================================*/
+
+
+ footer {
+     display: flex;
+     width: 100%;
+     min-width: 320px;
+     height: 150px;
+     background-color: var(--bitcoin-orange);
+ }
+
+    footer section {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .footer__left * {
+        font: var(--h2-mobile);
+        list-style: none;
+        text-decoration: none;
+        color: var(--just-white);
+    }
+    
+        .footer__left li {
+            margin: 8px 0;
+        }
 
                                             
    
