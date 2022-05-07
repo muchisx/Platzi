@@ -36,7 +36,7 @@ caja.push(new Billete(5, 5, bill_5));
 
 
 function disponibleStart() {
-    for (dis in caja) {
+    for (let dis in caja) {
         disponible = disponible + (caja[dis].cantidad * caja[dis].valor);
         
     }
@@ -58,7 +58,7 @@ function entregarDinero() {
 
     if (disponible >= dinero) {
 
-        for(var bi of caja){
+        for(let bi of caja){
 
             if(dinero > 0){
                 div = Math.floor(dinero / bi.valor);
@@ -83,7 +83,7 @@ function entregarDinero() {
 
     if(dinero > 0) {
         resultado.innerHTML = "Recap of your transaction: <br />"
-        for(var e of entregado) {
+        for(let e of entregado) {
             if (e.cantidad > 0) {
              // resultado.innerHTML = resultado.innerHTML + e.cantidad + " billetes de $" + e.valor + "<br />";
              // The bellow "+=" sums the value of the element after the =
@@ -95,7 +95,7 @@ function entregarDinero() {
     else
     {
         resultado.innerHTML = "Recap of your transaction: <br />"
-        for(var e of entregado) {
+        for(let e of entregado) {
             if (e.cantidad > 0) {
              // resultado.innerHTML = resultado.innerHTML + e.cantidad + " billetes de $" + e.valor + "<br />";
              // The bellow "+=" sums the value of the element after the =

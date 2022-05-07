@@ -3,7 +3,7 @@
 var numeros = 100;
 // var divisible = false; | Method 1 (more code) to not write numbers that arent divideable
 
-for (i = 1;  i <= 100; i++) {
+for (let i = 1;  i <= 100; i++) {
 
     divisible = false;
 

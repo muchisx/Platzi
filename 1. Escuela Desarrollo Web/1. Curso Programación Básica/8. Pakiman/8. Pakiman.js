@@ -54,7 +54,7 @@ console.log(coleccion);
 
 // for (-anyvariable- of --array--) does a cycle for a number of elements in the array
 
-for(i of coleccion) {
+for(let i of coleccion) {
 console.log(i);
 }
 

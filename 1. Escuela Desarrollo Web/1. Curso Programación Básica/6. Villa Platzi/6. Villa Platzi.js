@@ -210,7 +210,7 @@ function dibujar() {
         positioncx = Array(amountc);
         positioncy = Array(amountc);
 
-        for (amount = 0;  amount < amountc; amount++) {
+        for (let amount = 0;  amount < amountc; amount++) {
             xc = aleatorio(0,420);
             yc = aleatorio(0,420);
             papel.drawImage(cerdo.Image, xc, yc);
@@ -224,7 +224,7 @@ function dibujar() {
         positionpx = Array(amountp);
         positionpy = Array(amountp);
 
-        for (amount = 0;  amount < amountp; amount++) {
+        for (let amount = 0;  amount < amountp; amount++) {
             xp = aleatorio(0,420);
             yp = aleatorio(0,420);
             papel.drawImage(pollo.Image, xp, yp);

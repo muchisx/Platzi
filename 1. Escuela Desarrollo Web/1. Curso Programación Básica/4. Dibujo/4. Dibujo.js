@@ -95,7 +95,7 @@ function dibujoPorClick()
     var espacio = d_width / parseInt(texto.value)
     var lineas = texto.value;
 
-    for (l = 0; l < lineas; l++)
+    for (let l = 0; l < lineas; l++)
     {
         xi = espacio * l;
         yf = espacio * (l+1);

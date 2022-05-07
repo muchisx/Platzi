@@ -52,7 +52,7 @@ receiver_bank_select.addEventListener('change', dynamicReceiverInfo);
 
 var bal_client_current = document.getElementById("balance_client_current");
 
-for (i = 0; i < client.length; i++) {
+for (let i = 0; i < client.length; i++) {
     client_bank_select.options[i+1] = new Option(client[i].bank, client[i].bank);
     receiver_bank_select.options[i+1] = new Option(client[i].bank, client[i].bank);
 }
