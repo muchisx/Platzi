@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="CHANGE THIS DESCRIPTION">
+    <meta name="robots" content="index,follow">
+
+    <!-- <link rel="stylesheet" href="./css/style.css"> -->
+
+    <title>CHANGE THIS TITLE</title>
+</head>
+<body>
+
+    <main>
+        
+        <section>
+            <h3>Rectangle</h3>
+            <form action="submit">
+                <label for="rectangleLengthInput">Length</label>
+                <input type="number" name="rectangle length input" id="rectangleLengthInput">
+                <label for="rectangleWidthInput">Width</label>
+                <input type="number" name="rectangle width input" id="rectangleWidthInput">
+                <button type="button" onclick="launchCalculateRectangleArea();">Area</button>
+                <button type="button" onclick="launchCalculateRectanglePerimeter();">Perimeter</button>
+                <button type="button" onclick="launchCalculateRectangleDiagonal();">Diagonal</button>
+            </form>
+            <p id="rectangle-result"></p>
+        </section>
+
+        <section>
+            <h3>Triangle</h3>
+            <form action="submit">
+                <label for="triangleSideAInput">Side A</label>
+                <input type="number" name="rectangle side A Input" id="triangleSideAInput">
+                <label for="triangleSideBInput">Side B</label>
+                <input type="number" name="rectangle side B Input" id="triangleSideBInput">
+                <label for="triangleSideCInput">Side C</label>
+                <input type="number" name="rectangle side  Input" id="triangleSideCInput">
+                <button type="button" onclick="launchCalculateTriangleArea();">Area</button>
+                <button type="button" onclick="launchCalculateTrianglePerimeter();">Perimeter</button>
+            </form>
+            <p id="triangle-result"></p>
+        </section>
+
+        <section>
+            <h3>Circle</h3>
+            <form action="submit">
+                <label for="circleRadiusInput">Radius</label>
+                <input type="number" name="circle Radius input" id="circleRadiusInput">
+                <button type="button" onclick="launchCalculateCircleArea();">Area</button>
+                <button type="button" onclick="launchCalculateCircleCircumference();">Circumference</button>
+                <button type="button" onclick="launchCalculateCircleDiameter();">Diameter</button>
+            </form>
+            <p id="circle-result"></p>
+        </section>
+
+    </main>
+
+    <script src="./02-geometry.js"></script>
+</body>
+</html>
