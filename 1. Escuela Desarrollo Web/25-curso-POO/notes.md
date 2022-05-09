@@ -198,11 +198,31 @@ Abstraction concept comes into play here. This means when we take an object and 
 
 ## **What is Modular Design?**
 
+
 <br>
 
 It means to subdivide a complex system in small parts called modules. Modularity helps with reusability, optimization and speed, avoid total collapses, legibility.
 
 * Thanks to classes, modularity will be possible!
+
+<br>
+
+### **Encapsulation**
+
+This will be the method we will use to protect variables and data from acces and/or editing privileges.
+
+**Means of encapsulation are:**
+
+* **public**
+  * Anything can acces it.
+* **protected**
+  * Can only be accesed at the class level and package - Parent/Child inherit this behaviour.
+* **default**
+  * Can only be accesed at the class level and package - Parent/Child do not inherit this behaviour.
+* **private**
+  * Can only be accesed at the class level.
+
+<br>
 
 ## **Inheritance**
 
@@ -238,3 +258,6 @@ Inheritance is based on Hierarchy, where a parent class called a "superClass" ha
 
 <br>
 
+## **Polymorphism**
+
+Build methods with the same name but different behaviour.
