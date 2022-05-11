@@ -1,23 +1,44 @@
-import Student from "./modules/Student.js";
-import LearningPath from "./modules/LearningPath.js";
-import Course from "./modules/Course.js";
-import Lessons from "./modules/Lessons.js";
+import User from "./modules/User.mjs";
+import Comment from "./modules/Comment.mjs";
+import StudentFree from "./modules/StudentFree.mjs";
+import StudentBasic from "./modules/StudentBasic.mjs";
+import StudentPro from "./modules/StudentPro.mjs";
+import LearningPath from "./modules/LearningPath.mjs";
+import Course from "./modules/Course.mjs";
+import Lesson from "./modules/Lesson.mjs";
+import Teacher from "./modules/Teacher.mjs";
 
+
+const lessonThirds = new Lesson({
+    name: "Rule of Thirds",
+    videoID: "AAA123"
+})
+
+const lessonGoldenRatio = new Lesson({
+    name: "The Golden Ratio",
+    videoID: "AAA124"
+})
 
 const courseComposition = new Course({
     name: "Composition",
+    lessons: [
+        lessonThirds,
+        lessonGoldenRatio,
+    ],
 })
 const courseColorTheory = new Course({
     name: "Color Theory",
 })
 const courseLayoutDesign = new Course({
     name: "Layout Design",
+    isFree: true,
 })
 const courseArtHistory = new Course({
     name: "Art History",
 })
 const courseEquilibrium = new Course({
     name: "Equilibrium",
+    isFree: true,
 })
 const courseFundamentalsChemistry = new Course({
     name: "Fundamentals of Chemistry",
@@ -85,29 +106,49 @@ const photographySchool = new LearningPath({
 })
 
 
-const pepe = new Student({
+const pepe = new StudentFree({
     name: "pepe",
     username: "pepex",
     email: "pepe@pepe.com",
     twitter: "pepetw",
-    LearningPaths: [
+    learningPaths: [
         designSchool,
         cookingSchool,
     ],
 })
 
-const generic = new Student({
-    name: "generic",
-    username: "genericx",
-    email: "generic@generic.com",
-    instagram: "genericig",
-    LearningPaths: [
+pepe.trialPeriod = "30 days"
+
+pepe.approveCourse(courseEquilibrium);
+pepe.approveCourse(courseLayoutDesign);
+
+const mike = new StudentBasic({
+    name: "mike",
+    username: "mikex",
+    email: "mike@mike.com",
+    instagram: "mikeig",
+    learningPaths: [
         designSchool,
         photographySchool,
     ]
-
 })
 
+const aTeacher = new Teacher({
+    name: "A Teacher",
+    username: "ateacherx",
+    email: "ateacher@teacher.com",
+    facebook: "dateacha"
+})
+
+
+pepe.postUserComment("I should be marked as a comment student")
+aTeacher.postUserComment("I should be marked as a comment teacher")
+
+
+mike.approveCourse(courseCameraFundamentals)
+mike.approveCourse(courseHistogramEvaluation)
+
 console.log(pepe, '    <- pepe');
-console.log(generic, '    <- generic');
+console.log(mike, '    <- mike');
+console.log(aTeacher, '    <- aTeacher');
 
