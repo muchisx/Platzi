@@ -16,6 +16,7 @@ class duck {
 console.log(duck.sound, '    <- duck.sound');
 duck.doCuak();
 
+
 // The following are static attributes and methods of a literal object "anObject"
 
 const anObject = {
@@ -60,7 +61,7 @@ console.log(anObjectEntries, '    <- anObjectEntries');
 
 // --------------------Object.getOwnPropertyDescriptors(obj)-------------------------
 
-// This method returns an object that the original object with desctructured key/value pairs that describe their internal permission properties
+// This method returns an object that within contains other objects containing key value pairs and their respective internal permission properties
 
 const anObjectgetOwnPropertyDescriptors = Object.getOwnPropertyDescriptors(anObject);
 console.log(anObjectgetOwnPropertyDescriptors, '    <- anObjectgetOwnPropertyDescriptors');
@@ -76,8 +77,7 @@ Object.defineProperty(anObject, "name", {
     writable: false,
 });
 
-console.log(anObject, '    <- anObject with non writtable name')
-// console.log(anObjectgetOwnPropertyDescriptors, '    <- anObjectgetOwnPropertyDescriptors');
+console.log(Object.getOwnPropertyDescriptors(anObject))
 
 // ennumaerable 
 // false <- means cannot be listed in the object as an ennumerable indexable property, but it will still exist within the object prototype.
