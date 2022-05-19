@@ -1,3 +1,4 @@
+// INTRO
 
 const fruits = ['🍒', '🥥', '🥝', '🍎'];
 
@@ -12,24 +13,15 @@ console.log('original', fruits);
 console.log('new', newArray);
 
 
-
+// MAP
 
 const newArray2 = fruits.map(item => item + '++');
 newArray2;
 
 
 
-const ovejas = [
-    { name: 'Noa', color: 'azul' },
-    { name: 'Euge', color: 'rojo' },
-    { name: 'Navidad', color: 'rojo' },
-    { name: 'Ki Na Ma', color: 'rojo'},
-    { name: 'AAAAAaaaaa', color: 'rojo' },
-    { name: 'Nnnnnnnn', color: 'rojo'}
-]
+const elements = ['Fire', 'Air', 'Water'];
 
-const filter = /an/
-
-const ovejasFiltradas =  ovejas.filter(({name, color}) => color == 'rojo');
-ovejasFiltradas;
-console.log(ovejasFiltradas);
+console.log(elements.join());
+console.log(elements.join(''));
+console.log(elements.join('-'));
