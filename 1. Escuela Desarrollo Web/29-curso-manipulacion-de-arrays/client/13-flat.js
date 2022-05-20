@@ -1,27 +1,30 @@
 // Intro
 
 const matrix = [
-    [1,2,3],
+    [3,2,1],
     [4,5,6 , ["a","b","c", [12,13,14]]],
     [7,8,9],
 ]
 
 
-const flattenRecursive = () => {
-    let arrayFlattened = [];
+let newArray = [];
 
-    function flattenArray(array) {
-        
-        if (arrayFlattened.length < 5) {
-            arrayFlattened += array;
-            return flattenArray(arrayFlattened)
-        }
+const flattenArrayRecursive = (array) => {
+
+    for (let i = 0; i < array.length; i++) {
+        const element = array[i];
+
+        if(Array.isArray(element)) flattenArrayRecursive(element);
+        else newArray[newArray.length] = element;
+
     }
-
-    return flattenArray();
 }
 
-let flatArray = flattenRecursive();
+flattenArrayRecursive(matrix);
+newArray;
 
 
-console.log(flatArray);
+// Flat
+
+const newArray2 = matrix.flat(Infinity)
+newArray2;

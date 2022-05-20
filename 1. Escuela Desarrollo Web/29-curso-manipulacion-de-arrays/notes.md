@@ -483,3 +483,99 @@ Método concat: fusiona arrays. Es inmutable (no modifica el array original).
 
 
 ## **Flat**
+
+
+## **FlatMap**
+
+flatMap() es un método que primero mapea cada elemento, y después aplana el resultado en un nuevo array.
+Es idéntico a hacer un map() seguido de un flat() de profundidad 1.
+Si necesitas hacer un flat de mayor profundidad, es mejor usar los métodos por separado, en lugar de usar flatMap().
+.
+
+Usando flatMap como filtro
+Con flatMap puedes filtrar elementos, por ejemplo:
+
+![alt text](https://static.platzi.com/media/user_upload/flatMap-filtered-95662090-0d42-4c85-995d-ec490d01cf20.jpg)
+
+.
+Pero, ¿cómo funciona?
+Funciona gracias al array vacío, ejemplo:
+
+![alt text](https://static.platzi.com/media/user_upload/code-snapshot-6e498306-e95b-4f74-a039-d3bb98838b06.jpg)
+
+.
+Cuando quieres aplanar un elemento que es un array vacío, flat() simplemente remueve el array, por lo tanto, podemos usar flatMap para que se comporte como una especie de filtro si es que lo necesitamos. 👍🏻
+
+--
+
+## **Mutable functions**
+
+Un pequeño aporte que no sabía y quiero compartir.
+El metodo .splice(), no solamente sirve para borrar en cierta
+forma un elemento sino también para agregarlos al index del array que tu quieres.Ej:
+
+Tenemos el siguiente array:
+const holaMundo = [‘Maria’, ‘Andres’, ‘Cecilia’];
+
+Y quizás lo que quieres es añadir a ‘Roberto’ después de Andres y antes de cecilia.
+
+Buscamos el index con el findIndex de cecilia tal como el profe nos enseño.
+holaMundo.splice(index, 0, ‘Roberto’)
+& listo, pones tu index de celcilia, no le ponemos un 1
+porque no queremos eliminar ningún elemento hacia la
+derecha sino un 0, pones la coma y pones el o los
+elementos que quieres agregar allí.
+
+
+## **Sort**
+
+¿Por qué a - b o b - a?
+La función que le enviamos a sort es la función compareFn donde:
+
+Si compareFn(a, b) devuelve un valor mayor que 0, ordena b antes a.
+Si compareFn(a, b) devuelve un valor menor que 0, ordena a antes b.
+Si compareFn(a, b) devuelve 0 a y b se consideran iguales.
+
+--
+
+Para ordenar los meses
+Creé una función que le de un valor numérico a cada mes y luego le envié esa función a Sort:
+
+                const months = ['Febrero', 'Julio', "fsdf", 'Diciembre', 'Enero'];
+                function monthValue(month) {
+                switch (month.toUpperCase()) {
+                        case 'ENERO':
+                        return 1;
+                        case 'FEBRERO':
+                        return 2;
+                        case 'MARZO':
+                        return 3;
+                        case 'ABRIL':
+                        return 4;
+                        case 'MAYO':
+                        return 5;
+                        case 'JUNIO':
+                        return 6;
+                        case 'JULIO':
+                        return 7;
+                        case 'AGOSTO':
+                        return 8;
+                        case 'SEPTIEMBRE':
+                        return 9;
+                        case 'OCTUBRE':
+                        return 10;
+                        case 'NOVIEMBRE':
+                        return 11;
+                        case 'DICIEMBRE':
+                        return 12;
+                        default:
+                        //Cualquier valor que no coincida se irá de último
+                        return 13; 
+                }
+                }
+
+                months.sort((a, b) => monthValue(a) - monthValue(b))
+
+                console.log(months);
+                Resultado:
+                [ 'Enero', 'Febrero', 'Julio', 'Diciembre', 'fsdf' ]

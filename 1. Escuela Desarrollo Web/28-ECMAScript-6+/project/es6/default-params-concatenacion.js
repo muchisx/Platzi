@@ -15,7 +15,7 @@ newFunction();
 // ES 6
 
 function newFunction2(name = "Muchisx", age = 32, country = "US") {
-    console.log(name, age, country, '    <- name, age, country');
+    console.log(name, age, '    <- name, age, country');
 }
 
 newFunction2();
