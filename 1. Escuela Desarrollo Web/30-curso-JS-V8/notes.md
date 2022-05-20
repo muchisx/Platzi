@@ -375,3 +375,288 @@ Conceptualmente, por ejemplo, una estricta definición de hoisting sugiere que l
 --
 
 Cuando comparamos window con this y da true, ese true NO lo da porque sean objetos iguales y tengan la información, ese true lo da porque ambas variables son EL MISMO objeto, es decir, ambas variables tienen la misma referencia de memoria, ambas variables están apuntando a la misma referencia en memoria de la computadora, por lo que, si cambias algo en una, también se cambiará en otra ^^
+
+
+## **Memory Heap**
+
+Los objetos en JS (objetos, arrays, funciones y básicamente todo lo que no sea un valor primitivo) se almacenan en la parte de memoria que de llama Memory Heap. Los valores primitivos son almacenados en el Call Stack, dentro del Scope (Contexto de Ejecución de la función que tenga acceso a esa variable). Acceder al Call Stack es mucho más rápido que al Heap. Además, en el Call Stack también se guardan las referencias, “como si fueran valores primitivos”.
+
+Cuando se asigna una variable a otra y esta apunta a un objeto, se copia la referencia, como si fuera un valor primitivo. Si el objeto tiene atributos como un número por ejemplo, este se guarda en la posición de memoria reservada para ese objeto. Los objetos también pueden tener más objetos dentro. En ese caso, dentro de la posición de memoria de ese objeto se va a guardar una referencia a otra posición de memoria
+
+--
+
+Memory Heap
+
+Donde se almacena los valores de las variables y las funciones
+Se destina un espacio en memoria para las variables.
+La información en el memory heap, No se guarda de manera lineal
+
+--
+
+La forma en que funciona el Memory Heap se llama almacenamiento por nodos, al momento de almacenar la variable/objeto lo encapsula y le asigna un id y un id padre, esto se conoce como nodos, lo que le permite al motor saber cuales son las variables y su contenido enlazado en caso que sea un objeto. Así el motor administra la memoria y este “estante” es limpiado una vez termina la ejecución del JS
+
+--
+
+## **Call Stack**
+
+Callstack
+
+Como se mandan a llamar las variables y las funciones
+
+
+Las tareas en el callstack se apilan de abajo hacia arriba.
+
+
+Se llaman de la última que mandamos a llamar hacia abajo
+
+
+En la base de la pila reposa el Global Object
+
+
+Si una función llama a otra, la pone encima de la pila.
+
+
+Se ejecuta una tarea a la vez (sincronía)
+
+
+Una vez que se van ejecutando las tareas se van retirando de la pila
+
+
+Al ejecutar todas las tareas se retira el Global object.
+
+--
+
+![js](https://miro.medium.com/max/783/1*E3zTWtEOiDWw7d0n7Vp-mA.gif)
+
+--
+
+https://medium.com/@gaurav.pandvia/understanding-javascript-function-executions-tasks-event-loop-call-stack-more-part-1-5683dea1f5ec
+
+--
+
+https://youtu.be/ygA5U7Wgsg8
+
+--
+
+Call Stack(Pila de ejecucion) y Memory Heap
+JavaScript tiene un solo subproceso con un contexto de ejecución global, esto significa que JavaScript maneja una sola pila de llamadas(Call Stack) y un Memory Heap, que hace referencia a la parte de la memoria no estructurada donde se guardan los objetos y funciones. Las funciones del Call Stack se procesarán en el orden en que se llama, comúnmente conocido como Last-In, First-Out (LIFO).
+El motor de JavaScript utiliza una pila de llamadas(Call Stack) para administrar los contextos de ejecución: el contexto de ejecución global y los contextos de ejecución de funciones. La pila de llamadas funciona según el principio LIFO, es decir, el último en entrar es el primero en salir.
+Cuando ejecuta un script, el motor JavaScript crea un contexto de ejecución global(En la base de la pila reposa el Global Object) lo coloca en la parte superior de la pila de llamadas(Call Stack).
+Siempre que se llama a una función, el motor de JavaScript crea un contexto de ejecución de función para la función, lo coloca en la parte superior de la pila de llamadas(Call Stack) y comienza a ejecutar la función.
+Si una función llama a otra función, el motor de JavaScript crea un nuevo contexto de ejecución de función para la función que se está llamando y lo coloca en la parte superior de la pila de llamadas(Call Stack).
+Cuando se completa la función actual, el motor de JavaScript la saca de la pila de llamadas(Call Stack) y reanuda la ejecución donde la dejó en la última lista de código.
+El script se detendrá cuando la pila de llamadas esté vacía.
+Ejemplo de pila de llamadas(Call Stack) de JavaScript
+
+        function add(a, b) {
+        return a + b;
+        }
+
+        function average(a, b) {
+        return add(a, b) / 2;
+        }
+
+        // debugger;
+        // Si hacemos el debugger con Chrome al ejecutarlo nuestro Script
+        // en la pila de llamadas(Call Stack), se crea anonymous que es
+        // el objeto global
+        average(10, 20);
+
+En la base de la pila reposa el Global Object, que este es el objeto que nos da el navegador, cuando se ejecuta el script, el motor de JavaScript coloca el contexto de ejecución global (indicado por main() o global() función en la pila de llamadas(Call Stack).
+
+![Call_Stack.png](https://static.platzi.com/media/user_upload/Call_Stack-e97694c4-71e7-415c-babe-20a870f4c5d1.jpg)
+
+El contexto de ejecución global entra en la fase de creación y pasa a la fase de ejecución.
+
+El motor de JavaScript ejecuta la llamada a la average(10, 20) función y crea un contexto de ejecución de función para la average() función y lo coloca en la parte superior de la pila de llamadas(Call Stack):
+
+![Call_Stack1.png](https://static.platzi.com/media/user_upload/Call_Stack1-ab4f894a-6bac-4ff0-8899-7e6a9802e0b9.jpg)
+
+El motor de JavaScript comienza a ejecutar el average() ya que está en la parte superior de la pila de llamadas.
+
+La average() función llama a la add() función. En este punto, el motor de JavaScript crea otro contexto de ejecución de función para la add() función y lo coloca en la parte superior de la pila de llamadas(Call Stack):
+
+![Call_Stack2.png](https://static.platzi.com/media/user_upload/Call_Stack2-c4474500-ca07-413c-9679-56016b5e77cc.jpg)
+
+El motor de JavaScript ejecuta la add() función y la saca de la pila de llamadas(Call Stack):
+
+![Call_Stack3.png](https://static.platzi.com/media/user_upload/Call_Stack3-eb8ac188-7739-4fbd-9adc-4f5c494b4522.jpg)
+
+En este punto, la average() función está en la parte superior de la pila de llamadas, el motor JavaScript la ejecuta y la saca de la pila de llamadas(Call Stack).
+
+![Call_Stack4.png](https://static.platzi.com/media/user_upload/Call_Stack4-9016761b-66bf-431e-b052-f1dcf7891b1f.jpg)
+
+Ahora, la pila de llamadas(Call Stack) está vacía, por lo que el script deja de ejecutarse:
+
+![Call_Stack5.png](https://static.platzi.com/media/user_upload/Call_Stack5-e34bc515-fcb8-4ad9-a4f8-c5d28ed735b0.jpg)
+
+Desbordamiento de pila
+La pila de llamadas tiene un tamaño fijo, dependiendo de la implementación del entorno de host, ya sea el navegador web o Node.js.
+
+Si el número de contextos de ejecución supera el tamaño de la pila, se producirá un desbordamiento de la pila.
+
+Por ejemplo, cuando ejecuta una función recursiva que no tiene condición de salida, resultará en un error de desbordamiento de pila:
+
+        function foo() {
+        foo();
+        }
+
+        foo();
+        // stack overflow
+
+--
+
+## **Garbage Collection**
+
+Garbage Collection: limpia la memoria de los datos no utilizados para no sobrecargarla y seguir trabajando sin problemas.
+
+--
+
+El algoritmo Mark & Sweep hace referencia a cuando un tipo de dato se vuelve inalcanzable para el programa.
+Se toma una raíz la cual es el Objeto Global y a medida que el programa avanza, los objetos van creando o borrando referencias a sus raíces.
+Cuando un objeto se queda con 0 referencias, se dice que el objeto es inalcanzable y es aquí cuando el Garbage Collector entra a hacer su trabajo (Liberar el espacio que usaban esas variables u objetos)
+Desde 2012 los navegadores usan un Garbage Collector basado en este algoritmo, que ha ido recibiendo mejoras en su implementación constantemente.
+Puedes ver más información acerca del algoritmo Mark & Sweep y de cómo hace JavaScript para gestionar su memoria en éste enlace
+
+https://developer.mozilla.org/es/docs/Web/JavaScript/Gestion_de_Memoria
+
+--
+
+![garbage](https://i.stack.imgur.com/shG8h.gif)
+
+--
+
+En lenguajes de alto nivel como Java y JavaScript, los programadores no necesitan asignar o liberar memoria explícitamente. La memoria JavaScript se asigna cuando se crean cosas (objetos, cadenas, etc.) y se libera automáticamente cuando ya no se usan. Este proceso se llama Garbage Collection.
+
+https://dev.to/abhilashiam/garbage-collection-in-javascript-126a
+
+## **Stack overflow**
+
+![stck](https://miro.medium.com/max/632/1*xjhPcM027gMRApCCMdRUFw.gif)
+
+--
+
+El stack overflow se genera cuando el call stack se llena completamente (pila de tareas) .Esto pasa cuando se genera o se trabaja con bucles infinitos, recurcividad y funciones.Entonces este entra en stack overflow , tenemos que tener cuidado de ocacionar estos stack!!!
+
+--
+
+Tenemos nuestro Call Stack donde tenemos nuestra lista de tareas, empezando por el Global Object, se va agregando a la pila todo el código nuestro. Puede pasar que tengamos alguna función que haga que desbordemos esa pila del Call Stack, a esto se le llama Stack overflow, y se crasheará el navegador. En versiones anteriores de Chrome se cerraba por completo el navegador, ahora detectan ese desbordamiento y lo bloquean para evitar que se bloqueé todo el navegador.
+
+        function overflow() {
+                overflow();
+        }
+
+        overflow(); // Uncaught RangeError: Maximum call stack size exceeded```
+
+
+## **JavaScript Runtime**
+
+
+![ss](https://aseemrb.me/images/weird-awesome-javascript/chrome.png)
+
+
+--
+
+https://mauriciogc.medium.com/javascript-c%C3%B3mo-funciona-el-runtime-environment-jre-8ebceafdc938
+
+--
+
+https://olinations.medium.com/the-javascript-runtime-environment-d58fa2e60dd0
+
+--
+
+![js](https://res.cloudinary.com/practicaldev/image/fetch/s--BLtCLQcd--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://devtolydiahallie.s3-us-west-1.amazonaws.com/gif14.1.gif)
+
+
+--
+
+![js](https://static.platzi.com/media/user_upload/js-runtime-27c5fc01-b907-41b5-90e5-1d74d7371ec7.jpg)
+
+--
+
+
+JS runtime
+JavaScript es síncrono, va haciendo una tarea a la vez.
+
+Primero tenemos nuestro código en el memory heap, tenemos referencias
+Cuando vamos a ejecutar alguna parte de nuestro código va al call stack
+En el call stack se va apilando las tareas que tiene que hacer, cuando resuelve la tarea la saca del call stack
+Si hay código asíncrono se va a la parte de Web API´s, son API´s que nos proporciona el navegador para poder hacer interacciones dentro de nuestra aplicación (DOM, XMLHttpRequest, eventos)
+Cuando las API´s son requeridas pasan al callback queue, usan el modelo FIFO (First In First Out)
+Cuando termina de ejecutarse la parte síncrona, la parte asíncrona que esta en el callback queue pasa al call stack
+
+![js](https://static.platzi.com/media/user_upload/js-runtime-19cf096b-d04d-48a7-8a9a-c417f41851ae.jpg)
+
+
+--
+
+Qué es el Javascript Runtime?
+El runtime lo podemos definir como el entorno donde se está ejecutando nuestro código. Unos ejemplos claros serian Google Chrome y NodeJs.
+
+Es el Runtime parte del motor?
+No, Es lo contrario.
+El motor sera una de las partes que compongan el runtime, y cada runtime puede tener diferentes características adicionales, las cuales trabajaran en conjunto con el motor.
+
+Algunos de los componentes pueden ser:
+Motor de Javascript
+Web APIs
+Event Loop
+Job Queue
+Callback Queue
+
+## **Asincronia**
+
+Asincronía
+Por default corre una tarea a la vez – Sincronismo
+Ahora veremos que es el asincronismo
+Memory Heap: Espacio donde se guardan funciones y variables
+Call Stack: Donde se apilan todas las tareas que tenemos que hacer con Javascript
+Web API´s (Ofrecidas por el navegador para manipular lo siguiente)
+
+Dom(document)
+AJAX(XMLHttpRequest)
+Timeout(setTimeout)
+Call Back Queue: El orden en que se van a ejecutar a funciones
+Al momento de usar asincronismo sacamos funciones del Call Back Queue que no serán ejecutadas por javascript y serán ejecutadas por el navegador despues
+Ejemplo
+
+        console.log('taco 1')
+        console.log('taco 2')
+        console.log('taco 3')
+        setTimeout(()=>{
+        console.log('torta 1')
+        },1000)
+        console.log('taco 4')
+        setTimeout(()=>{
+        console.log('torta 2')
+        },500)
+        setTimeout(()=>{
+        console.log('torta 3')
+        },0)
+
+--
+
+Algo importante que faltó recalcar, además del callback queue hay otro queue donde se ponen las MicroTasks, es decir, las tareas con mas prioridad, así que primero se vacía este queue y luego va con el callback queue 👀
+
+Y de nuevo les vuelvo a dejar este video que explica mejor lo que es el callstack y el asincronísmo:
+
+https://www.youtube.com/watch?v=bWvnWhVCHAc
+
+
+--
+
+**Asincronismo: **
+Cuando hablamos del asincronismo hablamos del siguiente proceso →
+
+En el JS runtime enviroment se comienza a ejecutar nuestro codigo haciendo uso del Memory Heap y el Call Stack.
+Pero haciendo uso del Timer una de nuastras Web API’s (API’s del V8 de chrome). Podemos “delegar” codigo que el browser va a ir preparando simultaneamente pero sin ejecutarse todavia. Los resultados de este codigo solo entraran en escena cuando sea autorizado por el Event Loop.
+
+El codigo delegado debe ser guardado bajo el method setTimeout(), este lo pasara por la API Timer. Que organizara el codigo en un Callback Queue
+
+El orden en que se van a ejecutar estas acciones se ubica en el Callback Queue.
+
+Este codigo “delegado”, listo para ejectutarse segun el Callback Queue solo se ejecutara cuando las tareas en el Call Stack esten hechas.
+
+El event loop se encarga de verificar iterativamente si el Call Stack esta vacio, para luego permitir la ejecucion de las acciones en el Callback Queue
+
+pd: No me quedo muy claro si el Timer es una API o no, asi que si tengo mal esa parte sientase libre de corregirme.
