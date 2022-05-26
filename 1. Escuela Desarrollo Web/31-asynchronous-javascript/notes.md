@@ -210,3 +210,13 @@ El método object.send() envia la solicitud.
 --
 
 https://developer.mozilla.org/es/docs/Web/API/XMLHttpRequest
+
+
+## **Múltiples Peticiones a un API con Callbacks**
+
+
+PREGUNTA DE EXAMEN:
+Es recomendable de no realizar mas de 3 callback para no caer en un callback Hell, si tu proyecto tiene una funcion con mas de 3 callback, se recomienda hacer una revision y utilizar una mejor forma de ejecutar el codigo, para ello estan las promesas o el Async Away
+
+--
+
