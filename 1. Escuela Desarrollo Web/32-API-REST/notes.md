@@ -89,3 +89,144 @@ https://platzi.com/blog/la-api-para-nunca-parar-de-aprender-news/
 
 --
 
+## **Endpoints y query parameters**
+
+
+![img](https://i.imgur.com/gAYHTI0.png)
+
+
+--
+
+¿Qué es un Endpoint de una API?
+
+Un endpoint de API es un punto en el que una API, el código que permite que dos programas de software se comuniquen entre sí, se conecta con el programa de software. Las API funcionan enviando solicitudes  de información desde una aplicación web o un servidor web y recibiendo una respuesta .
+
+En otras palabras, los endpoints de API son la ubicación digital específica donde un programa envía solicitudes de información para recuperar el recurso digital que existe allí. Los endpoints especifican dónde las API pueden acceder a los recursos y ayudan a garantizar el correcto funcionamiento del software incorporado. El rendimiento de una API depende de su capacidad para comunicarse correctamente con los puntos finales de la API.
+
+Los programas de software suelen tener endpoints. Por ejemplo, en Instagram incluyen uno que permite a las empresas y los creadores medir las interacciones de medios y perfiles; uno que les permita moderar los comentarios y sus respuestas; y una tercera que les permite descubrir medios etiquetados.
+
+Query params
+
+El query param es la clave valor name=oscar que vemos al final de la URL, y como regla, siempre deberán estar después del símbolo de interrogación. Además, una URL puede tener N query params, cómo el siguiente ejemplo:
+
+        https://myapi.com/customers?firstname=oscar&lastname=blancarte&status=active
+
+Esta URL la podemos utilizar para buscar a todos los clientes donde su nombre es oscar, su apellido es blancarte y su estatus es activo. Cuando utilizamos más de un Query param, es importante separar cada uno mediante el simbolo &.
+
+
+## **¿Qué son los HTTP Status Codes?**
+
+
+HTTP status codes
+
+1XX Respuestas Afirmativas
+
+2XX Respuestas satisfactorias
+
+3XX Re-direcciones
+
+4XX Error del cliente
+
+5XX Error de servidor
+
+
+--
+
+Comprensión de los tipos de código de estado HTTP
+
+Los códigos de estado HTTP se dividen en 5 «tipos». Se trata de agrupaciones de respuestas que tienen significados similares o relacionados. Saber qué son puede ayudarte a determinar rápidamente la sustancia general de un código de estado antes de que vayas a buscar su significado específico.
+
+Las cinco clases incluyen:
+
+100s: Códigos informativos que indican que la solicitud iniciada por el navegador continúa.
+
+200s: Los códigos con éxito regresaron cuando la solicitud del navegador fue recibida, entendida y procesada por el servidor.
+
+300s: Códigos de redireccionamiento devueltos cuando un nuevo recurso ha sido sustituido por el recurso solicitado.
+
+400s: Códigos de error del cliente que indican que hubo un problema con la solicitud.
+
+500s: Códigos de error del servidor que indican que la solicitud fue aceptada, pero que un error en el servidor impidió que se cumpliera.
+
+--
+
+on la forma en la que protocolo HTTP nos dice que paso con nuestra solicitud,
+
+1xx: Indica que la petición fue recibida y el servidor sigue trabajando en el proceso.
+
+2xx: Indica que la petición fue recibida, procesada y aceptada de manera correcta.
+
+3xx: Indican que hay que tomar acciones adicionales para completar la solicitud. Por lo general indican redirección
+
+4xx: Indican errores del cliente, se hace mal la solicitud, se envían mal los datos, headers o cualquier 
+otro error que pueda ocurrir.
+
+5xx: Indican errores el servidor y no tenemos mucho control.
+
+Códigos más usados
+
+200: Todo esta OK.
+
+201: Todo OK cuando se hizo una solicitud POST, el recurso se creó y se guardó correctamente.
+
+204: Indica que la solicitud se completó correctamente pero no devolvió información. Es muy común cuando se hacen peticiones con el verbo DELETE.
+
+400: Bad Request, algo está mal en la petición. Se nos olvidó enviar un dato o algo relacionado. Por lo general la respuesta nos especifica cuales fueron los errores a la hora de hacer la petición.
+
+401: Unauthorized, es decir, no estamos autorizados (autenticados) a realizar la petición.
+
+403: Forbidden, yo no tengo acceso a ese recurso, aunque este autenticado.
+
+404: Not Found, no existe el recurso que se está intentando acceder.
+
+500: Interna Server Error, es un error que retorna el servidor cuando la solicitud no pudo ser procesada. 
+
+Por lo general, si no tenemos acceso al backend, no tenemos control sobre los errores 500 que retorna un API.
+
+## **¿Qué es una API KEY?**
+ 
+ ![img](https://i.imgur.com/Zo66y0B.png)
+
+ --
+
+API KEY
+
+Son una, no la única, de las formas en que el backend puede identificar quien está haciendo cada solicitud.
+
+Debemos entender dos conceptos importantes, la Autenticación y la Autorización.
+
+Autenticación
+
+Consiste en identificar quien es cada quien. No sabe que permisos tiene fulano, No sabe que puede o no hacer fulano, Solamente sabe que él es fulano, que ella es pamela o que esa es una persona sin identificar.
+
+Autorización
+
+Es la que nos dice que permisos tiene cada quien, es decir, si fulano quiere ir a la nevera para comerse un pastel, es la que dice, espérate fulano, tienes permisos para abrir la nevera?, a listo ábrela, tienes permisos de comerte el pastel?, a bueno comételo.
+
+Y además por poner un ejemplo más real, si fulano trata de ver las fotos privadas de pamela, la autorización va a decir, ok quien eres?, la autenticación ya te dijo que eras fulano, a listo perfecto, autenticación me pasas un token, listo ya sé que tu eres fulano, y luego empieza a revisar los permisos, como no los tiene se lo va a prohibir,
+
+Obviamente estos trabajan en conjunto para prohibir o permitir a toda la información que tenemos en nuestra aplicación, y ahí es donde entran las API KEYs.
+
+Estas API Keys son una de las formas en que el backend puede indentificar quien es cada quien.
+
+El backend necesita saber quien esta haciendo cada solicitud, para proteger la información privada de las personas, pero también en muchos casos, para limitar la cantidad o las solicitudes que le hacemos a la aplicación.
+
+Para que nosotros podamos enviarle esta API KEY en cada solicitud que hagamos al backend podemos utilizar varias formas:
+
+Query parameter: ?apy_key=ABC123
+
+Authorization Header: X-API-Key: ABC123
+
+Alternativas
+
+Authorization: Basic
+
+Authorization: Barer Token
+
+OAuth 2.0 (es de las mejores y más complicadas formas de autenticar en la modernidad)
+
+Access Key + Secret Key
+
+En este caso estamos haciendo una Application-based authentication es decir estamos autenticando nuestra aplicación, estamos autenticando a nuestro frontend para que pueda hacer solicitudes al backend, pero hay aplicaciones donde no solamente necesitamos una Application-based authentication, también hay apps que necesitamos usar esta con una User-based authentication.
+
+https://blog.restcase.com/4-most-used-rest-api-authentication-methods/
