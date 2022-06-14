@@ -30,19 +30,17 @@
   </header>
 
   <main class="main-container">
+    
+          <p class="cat-card__landing-title" id="landing-title">Hit the Randomize button to get cats 🐈.</p>
 
-    <div class="cats-cards-container">
-      
-      <article class="cat-card-container">
-
-        <img src="" class="cat-card__image display-none" id="cat-image" alt="cat-image">
-        <p class="cat-card__landing-title" id="landing-title">Hit the button to get a cat.</p>
-        <button class="cat-card__randomize-button" id="randomize-button" type="button" onclick="changeRandomCat();">Randomize ☝🏼</button>
-
-        <p class="crafted-by">✍🏼 crafted by <a class="muchisx" href="https://github.com/muchisx" target="_blank" rel="noopener noreferrer">muchisx</a></p>
-      </article>
-      
+    <div class="cats-cards-container display-none" id="cats-cards-container">
     </div>
+    <div class="cats-cards-container display-none" id="favorites-cats-cards-container">
+    </div>
+    
+    <button class="cat-card__randomize-button" id="randomize-button" type="button" onclick="changeRandomCat();">Randomize ☝🏼</button>
+    <button class="cat-card__favorites-button" id="favorites-button" type="button" onclick="swapToFavorites()">Favorites ❤️</button>
+    <p class="crafted-by">✍🏼 crafted by <a class="muchisx" href="https://github.com/muchisx" target="_blank" rel="noopener noreferrer">muchisx</a></p>
 
   </main>
 
@@ -52,5 +50,6 @@
 
   <script src="./js/main.js"></script>
 </body>
+
 
 </html>

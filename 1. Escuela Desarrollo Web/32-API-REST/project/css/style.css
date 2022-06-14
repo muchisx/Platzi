@@ -47,11 +47,26 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 
     height: 100vh;
 
     padding: 40px;
 }
+
+    
+    .cat-card__landing-title {
+
+        margin-bottom: 120px;
+                    
+        font-family: "Tiro Gurmukhi";
+        font-size: clamp(24rem, 4vw, 60rem);
+        font-style: italic;
+        
+
+        text-align: center;
+        pointer-events: none;
+    }
 
 
     /*
@@ -62,90 +77,129 @@ body {
     .cats-cards-container {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
+
+        min-width: 200px;
+        min-height: 160px;
+        padding: 8px 0;
+        gap: 40%;
+
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+
+        overflow-x: scroll;
+        max-width: 80%;
+        margin-bottom: 120px;
+
+        background-color: var(--shade-2);
+        border-radius: 20px;
+        box-shadow: 2px 2px 0px 1px var(--shade-5);
     }
+
+        .cat-card-container:first-child {
+            margin-left: 40%;
+        }
+
+        .cat-card-container:last-child {
+            margin-right: 40%;
+        }
 
         .cat-card-container {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-
             max-width: 80vw;
+            scroll-snap-align: center;
         }
 
+            .cat-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+
+            }
+
             .cat-card__image {
-                height: clamp(160px, 40vw, 640px);
-                margin-bottom: 120px;
+                height: clamp(200px, 50vw, 640px);
+                border-radius: 20px;
             }
 
-            .cat-card__landing-title {
-                
-                font-family: "Tiro Gurmukhi";
-                font-size: clamp(24rem, 4vw, 60rem);
-                font-style: italic;
-                
-                margin-bottom: 120px;
-
-                text-align: center;
-            }
-
-            .cat-card__randomize-button {
+            .cat-card__favorite-button {
                 all: unset;
-                
-                width: max-content;
-                padding: 8px 12px;
-                margin-bottom: 44px;
 
-                font-weight: 700;
-                font-size: 18rem;
-                color: var(--shade-1);
+                position: absolute;
+                top: 80%;
 
-                background-color: var(--shade-4);
-                border-radius: 8px;
-
-                box-shadow: 2px 2px 0px 1px var(--shade-5);
+                font-size: 24rem;
 
                 cursor: pointer;
 
-                transition: background-color 0.25s ease;
-            }
-
-            .cat-card__randomize-button:hover {
-
-                background-color: var(--shade-3);
             }
 
 
-            .crafted-by {
-                opacity: 0.6;
-                width: max-content;
 
-                cursor: default;
-                font-size: 12rem;
-                color: var(--shade-4);
+    .cat-card__randomize-button,
+    .cat-card__favorites-button {
+        all: unset;
+        
+        width: max-content;
+        padding: 8px 12px;
+        margin-bottom: 20px;
 
-                transition: opacity 200ms ease;
-            }
+        font-weight: 700;
+        font-size: 18rem;
+        color: var(--shade-1);
 
-                .muchisx {
-                    position: relative;
-                    text-decoration: none;
-                    font-weight: 400;
+        background-color: var(--shade-4);
+        border-radius: 8px;
 
-                    /* Gradient Effect */
-                    background: linear-gradient(135deg, var(--shade-3) 30%, var(--shade-5) 80%);
-                    background-clip: text;
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    border-width: 0 0 1px 0;
-                    border-style: solid;
-                    border-image: linear-gradient(135deg, var(--shade-3) 30%, var(--shade-5) 80%) 1;
-                }
+        box-shadow: 2px 2px 0px 1px var(--shade-5);
 
-            .crafted-by:hover {
-                opacity: 1;
-            }
+        cursor: pointer;
+
+        transition: background-color 0.25s ease;
+    }
+
+    .cat-card__favorites-button {
+        margin-bottom: 44px;
+        font-size: 12rem;
+    }
+
+    .cat-card__randomize-button:hover,
+    .cat-card__favorites-button:hover {
+        background-color: var(--shade-3);
+    }
+
+    .crafted-by {
+        opacity: 0.6;
+        width: max-content;
+
+        cursor: default;
+        font-size: 12rem;
+        color: var(--shade-4);
+
+        transition: opacity 200ms ease;
+    }
+
+        .muchisx {
+            position: relative;
+            text-decoration: none;
+            font-weight: 400;
+
+            /* Gradient Effect */
+            background: linear-gradient(135deg, var(--shade-3) 30%, var(--shade-5) 80%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            border-width: 0 0 1px 0;
+            border-style: solid;
+            border-image: linear-gradient(135deg, var(--shade-3) 30%, var(--shade-5) 80%) 1;
+        }
+
+
+    .crafted-by:hover {
+        opacity: 1;
+    }
 
 
 

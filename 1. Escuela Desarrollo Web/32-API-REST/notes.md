@@ -230,3 +230,219 @@ Access Key + Secret Key
 En este caso estamos haciendo una Application-based authentication es decir estamos autenticando nuestra aplicación, estamos autenticando a nuestro frontend para que pueda hacer solicitudes al backend, pero hay aplicaciones donde no solamente necesitamos una Application-based authentication, también hay apps que necesitamos usar esta con una User-based authentication.
 
 https://blog.restcase.com/4-most-used-rest-api-authentication-methods/
+
+
+## **¿Qué son los Métodos HTTP?**
+
+![img](https://i.imgur.com/yx0LXkP.png)
+
+--
+
+https://twitter.com/Rapid_API/status/1529122521827708928?t=nLNBmOCXdfEFOUuucNK3jg&s=19
+
+https://twitter.com/Rapid_API/status/1529153009124532226?t=he3zUvyFv7bexzkvQSgScA&s=19
+
+--
+
+## **¿Qué son los Headers HTTP?**
+
+![img](https://static.platzi.com/media/user_upload/ayudita%20a%20lso%20compas-1131ceda-8144-4dbe-8e8e-b371d82b9c91.jpg)
+
+--
+
+¿Qué son los Headers HTTP?
+
+Los headers HTTP son parámetros que se envían en una transacción HTTP, que contienen información del estado de la transacción en curso.
+
+Cuando un cliente solicita información a un servidor, este puede pasarle información adicional en el header de la solicitud. información del tipo de datos que se esperan recibir, del tipo de datos que envían, información de autenticación etc.
+
+De la misma forma el servidor puede incluir estos headers en las respuestas para mostrar información del estado de la solicitud.(HTTP Status Codes)
+
+Estos pueden ser separados en varios grupos: (fuente)
+
+https://rapidapi.com/learn/rest-apis/rest-api-for-experts/different-types-of-http-headers?utm_source=google&utm_medium=cpc&utm_campaign=DSA&gclid=Cj0KCQjwyMiTBhDKARIsAAJ-9VtRyyo-mBrfeW6xZM5jJyQug_VtCsrpPCa_AlylsLPWyRWmQ62bnUcaAjGlEALw_wcB
+
+Request Headers
+
+Pasan información de la solicitud. Contienen información sobre el recurso solicitado e información del cliente que la solicita.
+
+URL a la que se le hace la solicitud, detalles de autenticación o políticas de cache
+
+Estos pueden ser:
+
+Accept: Informan al servidor el tipo de datos que el cliente puede entender
+
+        Accept: text/html
+        Accept: application/xhtml+xml
+        Accept: image/png
+
+Accept-Encoding: Envían información sobre el tipo de codificación que el cliente puede entender
+
+        Accept-Encoding: gzip
+        Accept-Encoding: gzip, compress
+
+Authorization: sirve para pasar credenciales que le servirán al servidor determinar si el cliente tiene acceso a ciertos recursos
+
+        Authorization: Basic YWxhZGRpbjpvcGVuc2VzYW1l
+        Authorization: Bearer eyYWxhZGRpbjpvcGVuc2VzYW1l
+
+Accept-Language: Permite saber al servidor que tipo lenguaje es entendido por el cliente logrando entender que configuración local es viable enviar. Por ejemplo: los horarios, fechas, medidas, etc.
+
+        Accept-Language: fr-CH
+        Accept-Language: en-US
+
+Cache-Control: contiene información sobre el control de la cache por parte del cliente y del servidor.
+
+        Cache-Control: stale-while-revalidate=60
+        Cache-Control: no-cache
+
+Response Headers
+
+Así como los request headers contienen información del cliente, los response headers contienen información del servidor al que se le hace la petición.
+
+En realidad todos los headers enviados en un respuesta del servidor pueden ser llamados de esta manera.
+
+Age: Contienen información del tiempo que un objeto estuvo en caché. Se representa en segundos. Si es 0(cero) significa que la solicitud se obtuvo del servidor de origen. Sino se calcula como la diferencia entre el Date del proxy y el date enviado por la respuesta original.
+
+        Age: 24
+
+Server: Describen el software usado por el servidor que manejó la solicitud. Es decir el que generó la respuesta.
+
+Hay que tener en cuenta que hay que evitar demasiado detalle en estas respuesta ya que sino se estaría enviando información que podrían utilizar los atacantes(por ejemplo la versión del sistema operativo que utiliza el servidor). Se utiliza por ejemplo para exponer la versión de apache utilizada,
+
+        Server: Apache/2.4.1 (Unix)
+
+Location: indica la URL a la que redirigir una página. Solo proporciona un significado cuando se sirve con una respuesta de estado 3xx (redireccionamiento) o 201 (creado).
+
+
+Representation Headers
+
+Contienen información acerca del body de la solicitud, enviado en una respuesta o (en un POST)
+
+Content-type: Indica el tipo de contenido (formato de archivo) es enviado en una solicitud.
+
+        ejemplo: Content-Type: text/html; charset=UTF-8
+        
+Content-Enconding: Contienen la información necesaria para decodificar un archivo a su formato original.
+
+        Content-Encoding: compress
+        Content-Encoding: gzip
+
+Content-Languaje: Indica el lenguaje para los cuales es más relevante el contenido de una página, de modo que los usuarios puedan diferenciarlos según su propio idioma preferido.
+
+        Content-Language: en-US
+        Content-Language: en-CA
+
+Content-Location: Indican un URL o dirección alternativa para la respuesta. A diferencia de Location (en Request Headers). Este indica la url directa que puede ser utilizada para acceder al recurso. Mientras Location esta asociada la respuesta en si, content-location esta asociada a los datos devueltos.
+Por ejemplo: Si una api puede devolver datos en los formatos JSON, XML o CSV y su ruta se encuentra en https://ejemplo.com/documents/archivo.
+El sitio podría retornan distintas url dependiendo del parámetro Accept pasado en la solicitud.
+
+        Request header	                        Response header
+        Accept: application/json, text/json	Content-Location: /documents/foo.json
+        Accept: application/xml, text/xml	Content-Location: /documents/foo.xml
+        Accept: text/plain, text/*	        Content-Location: /documents/foo.txt
+
+Payload Headers
+
+contiene información acerca de la carga de la respuesta. Lenght, Enconding, Range.
+
+Content-Lenght: Indica el tamaño del body del mensaje en bytes
+
+        Content-Length: 3495
+
+Content-Range: Indica la posición a la que pertenece una porción del mensaje respecto al body.
+
+        Content-Range: <unit> <range-start>-<range-end>/<size>
+        Content-Range: bytes 200-1000/67589
+
+
+## **Header de autorización**
+
+Sets the connection Auth type
+
+## **Header de Content-Type**
+
+¿Que es MIME Types?
+
+Los MIME Types (Multipurpose Internet Mail Extensions)
+(Extenciones de correos de Intenet Multiproposito).
+
+Son la manera standard de mandar contenido a través de la red. Los tipos MIME especifican tipos de datos, como por ejemplo texto, imagen, audio, etc. que los archivos contienen. Recuerde que debe utilizar el sufijo correcto para este tipo de archivo.
+
+MIME adjunta a cada archivo un archivo de cabecera donde se indica el tipo y el subtipo del contenido de los datos del archivo. Gracias a esta información tanto el servidor como el navegador pueden manejar y presentar los archivos correctamente. Éstas no son las únicas ventajas: el usuario puede combinar archivos de distintos tipos de datos; se pueden incluir, por ejemplo, archivos de imágenes y de sonido en un documento HTML.
+
+Para que MIME funcione correctamente, se debe utilizar la designación de nombres correcta.
+
+--
+
+Uno de los headers que determinaremos al enviar datos es el Content Type, es decir, que tipo de dato será lo que enviaremos, para que el backend pueda decir: Ah! Me están enviando un tipo de dato X, entonces debo leer el body de esta manera.
+
+Tenemos muchísimos tipos de content types, empecemos a citarlos y agruparlos por categorías para que sea más fácil la lectura:
+
+-Application: {
+
+        application/json, 
+        application/xml,
+        application/zip,
+        application/x-www-form-urlencoded: "para enviar datos de formularios HTML"
+        
+}
+
+Envío de archivos de audio literalmente
+
+-Audio: {
+
+        audio/mpeg,
+        audio/x-ms-wma,
+        audio/vnd.rn-realaudio,
+        audio/w-wav
+
+}
+
+-Image: {
+
+        image/gif,
+        image/jpeg,
+        image/png,
+        image/x-icon, 
+        image/svg+xml
+
+}
+
+Video: {
+
+        video/mpeg,
+        video/mp4,
+        video/quicktime,
+        video/webm
+
+}
+
+Multipart: {
+
+        multipart/mixed,
+        multipart/alternative,
+        multipart/related,
+        multipart/form-data: "sirve para enviar datos de formularios, nos ahorra tener que hacer un querySelector a cada input y su value, al usar este tipo de dato podemos agrupar todos esos datos en uno solo"
+
+}
+
+Text: {
+
+        text/css,
+        text/csv,
+        text/html,
+        text/plain,
+        text/xml
+
+}
+
+VND: {
+
+        application/vnd.ms-excel,
+        application/vnd.ms-powerpoint,
+        application/msword
+
+}
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
