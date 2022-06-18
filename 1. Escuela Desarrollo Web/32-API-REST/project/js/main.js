@@ -1,4 +1,4 @@
-// ---------------- QUOKKA --------------------------------
+// ---------------- QUOKKA -------------------------------
 
 ({
     "plugins": ["jsdom-quokka-plugin"],
@@ -12,7 +12,7 @@
     }
 })
 
-// ---------------- QUOKKA --------------------------------
+// ---------------- QUOKKA -------------------------------
 
 const LANDING_TITLE = document.getElementById('landing-title');
 const CARDS_CONTAINER = document.getElementById('cats-cards-container');
