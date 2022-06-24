@@ -38,8 +38,18 @@
     <div class="cats-cards-container display-none" id="favorites-cats-cards-container">
     </div>
     
-    <button class="cat-card__randomize-button" id="randomize-button" type="button" onclick="changeRandomCat();">Randomize ☝🏼</button>
+    <div class="cat-card__randomize-buttons">
+      <button class="cat-card__randomize-button" id="randomize-button" type="button" onclick="changeRandomCat();">Randomize ☝🏼</button>
+      <button class="cat-card__randomize-button-axios" id="randomize-button-axios" type="button" onclick="changeRandomCatAxios();">👈🏼 Axios</button>
+    </div>
     <button class="cat-card__favorites-button" id="favorites-button" type="button" onclick="swapToFavorites()">Favorites ❤️</button>
+
+    <form action="" class="cat-card__upload-form" id="upload-form">
+      <input class="upload-form__upload-input" id="upload-input" type="file" name="file">
+      <button class="upload-form__upload-button" id="upload-button" type="button" onclick="uploadCatImage();">Upload 🔼</button>
+    </form>
+
+    
     <p class="crafted-by">✍🏼 crafted by <a class="muchisx" href="https://github.com/muchisx" target="_blank" rel="noopener noreferrer">muchisx</a></p>
 
   </main>
@@ -48,6 +58,7 @@
 
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="./js/main.js"></script>
 </body>
 

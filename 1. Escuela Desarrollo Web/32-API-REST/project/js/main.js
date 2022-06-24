@@ -30,6 +30,7 @@ const API_KEY = 'cede8741-5c98-48b3-8332-75be0bd0aa74';
 const ENDPOINTS = [
     '/images/search',
     '/favourites/',
+    '/images/upload',
 ];
 const OPTIONS = [
     "?limit=",
@@ -37,6 +38,11 @@ const OPTIONS = [
     "&order=",
     `?api_key=${API_KEY}`
 ];
+
+const CAT_API = axios.create({
+    baseURL: API_URL
+});
+CAT_API.defaults.headers.common['x-api-key'] = API_KEY;
 
 
 const fetchCats = async (FULL_API_URL) => {
@@ -58,6 +64,53 @@ const changeRandomCat = async () => {
     ].join('')
 
     const data = await fetchCats(RANDOM_5_DESC);
+    const nodes = [];
+
+    CARDS_CONTAINER.innerHTML = "";
+
+    data.forEach(item => {
+
+        let index = data.indexOf(item);
+
+        let article = document.createElement('article');
+        let div = document.createElement('div');
+        let img = document.createElement('img');
+        let button = document.createElement('button');
+        
+
+        article.classList.add('cat-card-container');
+        article.id = `cat-card-container-${index}`;
+        div.classList.add('cat-card');
+        img.id = item.id
+        img.classList.add('cat-card__image');
+        img.src = item.url;
+        button.classList.add('cat-card__favorite-button');
+        button.onclick = makeFavorite;
+        button.innerText = '🖤';
+
+        article.appendChild(div);
+        div.appendChild(img);
+        div.appendChild(button)
+
+        nodes.push(article);
+
+    })
+
+    CARDS_CONTAINER.append(...nodes)
+    FAV_CARDS_CONTAINER.classList.add('display-none')
+    CARDS_CONTAINER.classList.remove('display-none')
+
+    APP.LANDING_TITLE.remove();
+}
+
+const changeRandomCatAxios = async () => {
+      
+    const res = await CAT_API.get(`${ENDPOINTS[0]}${OPTIONS[0]}5`);
+    console.log(res);
+    const data = res.data
+    console.log(data);
+
+ 
     const nodes = [];
 
     CARDS_CONTAINER.innerHTML = "";
@@ -160,7 +213,6 @@ const swapToFavorites = async () => {
         
         FAV_CARDS_CONTAINER.append(...nodes)
     }
-
 }
 
 const makeFavorite = async (e) => {
@@ -173,6 +225,11 @@ const makeFavorite = async (e) => {
 
     console.log(imageURL);
     console.log(imageID);
+
+    const res = await postFavorite(imageID);
+}
+
+const postFavorite = async (imageID) => {
 
     const POST_FAV_URL = [
         API_URL,
@@ -191,7 +248,7 @@ const makeFavorite = async (e) => {
     })
 
     console.log(res);
-
+    return res
 }
 
 const removeFavorite = async (e) => {
@@ -224,3 +281,35 @@ const removeFavorite = async (e) => {
     console.log(res);
 
 }
+
+const uploadCatImage = async () => {
+
+   const form = document.getElementById('upload-form');
+   const formData = new FormData(form);
+   console.log(formData);
+   console.log(formData.get('file'));
+
+    
+   const POST_IMG_URL = [
+    API_URL,
+    ENDPOINTS[2],
+    ].join('')
+
+   const res = await fetch(POST_IMG_URL, {
+
+        method: 'POST',
+        headers: {
+            // 'Content-Type': 'multipart/form-data',
+            'x-api-key': API_KEY,
+        },
+        body: formData
+    
+   })
+   const data = await res.json();
+
+   console.log(data);
+   await postFavorite(data.id)
+   
+}
+
+

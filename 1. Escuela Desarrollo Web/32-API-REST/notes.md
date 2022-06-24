@@ -446,3 +446,17 @@ VND: {
 }
 
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
+
+
+## **Axios: librerías de JavaScript para consumir APIs**
+
+https://axios-http.com/
+
+## **CORS, caché, redirect y tu propio clon de fetch**
+
+## **GraphQL, Web Sockets y Web 3.0: el mundo más allá de REST**
+
+DNS (Domain Name System) lo usamos para poder comunicarnos con otros sitios a travez de un nombre de dominio como wwwplatzicom, sin ello sería atravez de la IP “000.00.000.000” del servidor donde se encuentra esa página y como es muy larga y difícil de recordar se uso DNS en la web2.
+
+ENS (Ethereum Naming Service) es la sustitución del DNS pero en la web3, ahora como cada persona tiene su wallet en el mundo del crypto pues la dirección seria algo a si “e32fre43f584bnf2784b3” lo cual se repite la historia como con la IP, es muy difícil de recordarla.
+Al comprar el dominio ENS seria de esta forma “badman.eth”. Alfín otra forma de recordarla más fácil.
