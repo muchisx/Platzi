@@ -384,8 +384,7 @@ Tenemos muchísimos tipos de content types, empecemos a citarlos y agruparlos po
         application/json, 
         application/xml,
         application/zip,
-        application/x-www-form-urlencoded: "para enviar datos de formularios HTML"
-        
+        application/x-www-form-urlencoded: "para enviar datos de formularios HTML"        
 }
 
 Envío de archivos de audio literalmente
@@ -396,7 +395,6 @@ Envío de archivos de audio literalmente
         audio/x-ms-wma,
         audio/vnd.rn-realaudio,
         audio/w-wav
-
 }
 
 -Image: {
@@ -406,7 +404,6 @@ Envío de archivos de audio literalmente
         image/png,
         image/x-icon, 
         image/svg+xml
-
 }
 
 Video: {
@@ -415,7 +412,6 @@ Video: {
         video/mp4,
         video/quicktime,
         video/webm
-
 }
 
 Multipart: {
@@ -424,7 +420,6 @@ Multipart: {
         multipart/alternative,
         multipart/related,
         multipart/form-data: "sirve para enviar datos de formularios, nos ahorra tener que hacer un querySelector a cada input y su value, al usar este tipo de dato podemos agrupar todos esos datos en uno solo"
-
 }
 
 Text: {
@@ -434,7 +429,6 @@ Text: {
         text/html,
         text/plain,
         text/xml
-
 }
 
 VND: {
@@ -442,7 +436,6 @@ VND: {
         application/vnd.ms-excel,
         application/vnd.ms-powerpoint,
         application/msword
-
 }
 
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
