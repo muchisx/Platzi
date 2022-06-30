@@ -1,5 +1,5 @@
 {
-  "name": "npm-platzi",
+  "name": "randomize-platzi-npm",
   "version": "1.0.0",
   "description": "Build a node package",
   "main": "src/index.js",
@@ -13,6 +13,10 @@
   ],
   "author": "muchisx <mnm.soul@gmail.com>",
   "license": "MIT",
+  "bin": {
+   "random-msg": "./bin/global.js"
+  },
+  "preferGlobal": true,
   "dependencies": {
     "moment": "^2.29.3"
   },
