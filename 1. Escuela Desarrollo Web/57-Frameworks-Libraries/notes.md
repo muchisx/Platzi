@@ -461,3 +461,170 @@ Otra ventaja es que podemos usar JS para programar nuestros estilos y hacerlos d
 --
 
 https://medium.com/dailyjs/what-is-actually-css-in-js-f2f529a2757
+
+## **Vue + Sass**
+
+https://codesandbox.io/s/vue-app-2-platzi-xtijmh
+
+## **Trabajando en React con Styled Components**
+
+![img](https://static.platzi.com/media/user_upload/21-angular-vue-react-c11c7d07-19e4-472c-96b0-4caf8ead9deb.jpg)
+
+## **React + Styled Components**
+
+https://codesandbox.io/s/react-app-platzi-gqrhzp
+
+## **Svelte + Emotion**
+
+https://codesandbox.io/s/svelte-app-platzi-gsldvy
+
+## **Tipos de aplicaciones según su router: SPAs vs. SSR**
+
+![img](https://static.platzi.com/media/user_upload/24-CSR-v-SSR-infographic-f6a0e322-fb77-4fad-9dbd-805f967cc933.jpg)
+
+--
+
+Otro punto importante sobre el SSR es que este es muy importante para SEO 👀. Cuando un robot de búsqueda examina tu página y no encuentra nada de contenido (SPA) estos pueden penalizarte en SEO, algunos crawlers soportan la ejecución de código JavaScript, sí, pero aun así sigue siendo recomendado mandar un HTML con datos ya pintados 😄
+
+--
+
+24.-Tipos de aplicaciones según su router: SPAs vs. SSR
+Antes de las aplicaciones web modernas se usaba el SSR “viejo” (Server Side Rendering), con el que el backend usaba una plantilla de HTML le daba a la plantilla los datos específicos requeridos en cada petición y le enviaba el HTML al navegador. Está forma de hacer render es rápida solo al principio porque el backend no le entrega al navegador la forma de interactuar con los usuarios
+
+SPAs y CSR
+
+Single Page Applications: Se inventa el Client Side Routing aquí gracias en parte a las API’s se empezó a renderizar el contenido desde JS directamente en el navegador. Es decir, el backend le entregaba al navegador un HTML prácticamente vacío, que tenía solo la petición de un script o alguna hoja de estilos. Entonces el navegador recibía el HTML en blanco, descargaba el JS y CSS y entonces JS podía empezar a renderizar la aplicación, entonces la carga inicial es lentísima, pero luego se hace bastante rápida, no necesita recargarse y cuando requiere información del backend solo hace la consulta a una API (que son fundamentales para estas aplicaciones).
+
+Para trabajar de esta forma tenemos dos componentes:
+
+Los routers son herramientas para manejar las rutas de nuestra aplicación, normalmente de eso se encargaría el servidor.
+
+Si no se tiene control servidor se usa
+
+Hash Router: Con “#” definimos en que parte de la aplicación estamos (en el home, logout, clientes, admin, etc.).
+Si tienes control sobre el servidor
+
+Browser Router: Sin importar la ruta puedes pedirle al servidor que siempre de el mismo index.html, y con JS podemos determinar en que ruta estamos y que ruta debemos mostrar dependiendo de la ruta que nos dio el servidor o navegaron e interactuaron los usuarios.
+Progressive SSR
+
+Gracias al CSR de la SPA se invento el SSR (Server Side Rendering combinado con Client Side Rendering).
+
+En lugar de mandar un documento HTML vacío al navegador y tardara mucho en descargarlo, se podía acelerar el proceso, desde el backend enviamos al navegador una versión de la aplicación en HTML que los usuarios puedan ver mientras el navegador descarga los archivos de JS y vuelve a hacer render de la aplicación. Entonces, el backend le envía al navegador una versión de la app que solo se puede ver pero no tocar, es decir, los usuarios no pueden interactuar inmediatamente con la app.
+
+NOTA: Para esto se necesita Node.js.
+
+Generación de Sitios Estáticos
+
+Estos generadores nos permiten usar el Progressive SSR mientras estamos desarrollando el sitio, pero cuando lo compilamos nos generan páginas estáticas que ya tienen cargados los datos que normalmente le pediríamos al backend y cuando hacemos deploy las aplicaciones funcionan de una. Si hay algún dato que nos daba el servidor pero que sabemos que casi no va a cambiar (como un blogpost) podemos volver a hacer deploy si queremos editar el contenido no habrá problema alguno.
+
+--
+
+![img](https://static.platzi.com/media/user_upload/2022-03-07_21-10-2fab2321-6786-4775-86ad-0026f44fe88f.jpg)
+
+## **Frameworks sobre frameworks: Next.js**
+
+En esta clase se trabajo con el framework llamado Next.js tambien conocido como el framework completo que utiliza react para la capa de vistas.
+
+En code sanbox se creo un nuevo template con next.js
+
+Esperar a que se cree el template ya que ahora tambien viene un servidor ya no solo archivos estaticos.
+
+Se borro la carpeta day, se creo el archivo pay.js y se renombro el archivo about.js por movies.js
+
+En index.js se creo una etiqueta <p> para indicar que es un sitio para comprar boletos de peliculas.
+
+En index.js se agrego el componente <link> para redireccionar a la página de movies.js
+
+        import Link from "next/link";
+
+        export default function IndexPage() {
+        return (
+            <div>
+            <p>Este es un sitio para comprar boletos de tus películas favoritas</p>
+            <Link href="movies">
+                <a>Ir a comprar pelis</a>
+            </Link>
+            </div>
+        );
+        }
+
+En movies.js se copio el código de clases anteriores de películas.
+Se creo la carpeta components y el archivo Form.js
+Se copio el código del componente Form de clases anteriores al archivo Form.js
+En movies.js se importo el componente Form
+
+        import Link from "next/link";
+        import { useRouter } from "next/router";
+
+        export default function PayPage() {
+        const { query } = useRouter();
+
+        return (
+            <div>
+            <p>
+                Compraste {query.quantity} boletos de la película {query.name}
+            </p>
+            <Link href="movies">
+                <a>Devolernos</a>
+            </Link>
+            </div>
+        );
+        }
+
+En pay.js se importo el componente Link
+En Form.js se importo el componente Link
+En movies.js importar el componente Link y crear el siguiente link
+
+        <Link href="/">
+            <a>Atrás</a>
+        </Link>
+        En Form.js se módifica la ruta para pasar información dinámica a la página de pay.js
+
+        <Link href={{ pathname: "pay", query: { name: movie.name, quantity } }}>
+                <a>Pagar</a>
+            </Link>
+
+En pay.js se importo el useRouter de next.js
+
+En pay.js se creo la constante query
+
+const { query } = useRouter();
+En pay.js para mostrar la cantidad de boletos y nombre de la pelicula se realiza asi:
+
+        <p>Compraste {query.quantity} 
+        boletos de la película {query.name}</p>
+
+
+## **My Next.js App**
+
+https://codesandbox.io/s/next-js-app-platzi-3h6n3s
+
+## **Organización de archivos en el frontend**
+
+Tipos de organización de carpetas
+
+-File Type First: Carpeta por cada tipo de archivos.
+-Feature First: Una carpeta para cada feature.
+-Apps for apps: Una carpeta para cada aplicacion.
+
+--
+
+Hay herramientas para el manejo del estado que nos ayudan a evitar a tener codigo espaguetti. Esto se le llama Deuda tecnica, por que en el futuro tendremos problemas en el futuro. Nos demoraremos un poco mas pero siempre es bueno tener una buena organizacion.
+
+Se divide entre logico vs interfaz. Es bueno tener una capa de UI y otra una capa de Datos. En react es bueno dividir todo entre componentes contenedores y presentacional.
+
+File Type First
+
+Tipo de organizacion donde cada tipo de archivo.Una de componentes, una de contenedores, otra para rutas.
+
+Feature First
+
+donde cada componente de nuestra aplicacion es dividir una carpeta para cada elemento que tengamos. Una carpeta de Menu, una carpeta de Form, una carpeta de Button. Esta forma es buena ya que cada carpeta sera independiente y no sera tan difiicil de entender.
+
+Apps For Apps
+
+Una carpeta para cada aplicacion
+
+--
+
+https://martinfowler.com/articles/micro-frontends.html
