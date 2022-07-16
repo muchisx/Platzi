@@ -196,3 +196,9 @@ Usando las propiedades podemos reutilizar un mismo componente muchas veces ahorr
 Todas las propiedades las podemos mandar de dos formas, como lo vimos en la clase
 
 <App saludo=“Buenas” /> o usando “children” <App>Buenaaaaaas</App>(donde podemos poner también etiquetas de HTML) y usandolo con props.children
+
+## **Todo App**
+
+UI inspirations
+
+https://dona.ai/

@@ -1,0 +1,21 @@
+
+.create-todo-button {
+
+    position: fixed;
+    bottom: 56px;
+
+    width: 40px;
+    height: 40px;
+    border: none;
+
+    font-size: 24rem;
+    font-family: "Inter";
+    line-height: 24rem;
+    text-align: center;
+
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+
+    cursor: pointer;
+}
