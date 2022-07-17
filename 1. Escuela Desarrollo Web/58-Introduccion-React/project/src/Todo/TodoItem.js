@@ -3,17 +3,9 @@ import './TodoItem.css'
 
 const TodoItem = (props) => {
 
-    const updateTodoStatus = () => {
-        console.log('updated todo status');
-    }
-
-    const deleteTodoItem = () => {
-        console.log('deleted todo item');
-    }
-
     return (
         <li className="todo-item">
-            <span className="todo-item__status" onClick={updateTodoStatus}>
+            <span className="todo-item__status" onClick={props.updateTodoStatus}>
                 {props.completed 
                     ? '🟩' 
                     : '⬜'
@@ -22,7 +14,7 @@ const TodoItem = (props) => {
             <p className={`todo-item__text ${props.completed && '--completed'}`}>
                 {props.text}
             </p>
-            <span className="todo-item__delete" onClick={deleteTodoItem}>🗑️</span>
+            <span className="todo-item__delete" onClick={props.deleteTodoItem}>🗑️</span>
         </li>
     );
 }
