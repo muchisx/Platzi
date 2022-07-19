@@ -1,22 +1,32 @@
-import './App.css';
+import './assets/App.css';
 import React from 'react'
-import TodoTitle from './Todo/TodoTitle';
-import TodoCounter from './Todo/TodoCounter';
-import TodoSearch from './Todo/TodoSearch';
-import TodoList from './Todo/TodoList';
-import TodoItem from './Todo/TodoItem';
-import CreateTodoButton from './Todo/CreateTodoButton';
+import TodoTitle from './components/TodoTitle/TodoTitle';
+import TodoCounter from './components/TodoCounter/TodoCounter';
+import TodoSearch from './components/TodoSearch/TodoSearch';
+import TodoList from './components/TodoList/TodoList';
+import TodoItem from './components/TodoItem/TodoItem';
+import CreateTodoButton from './components/CreateTodoButton/CreateTodoButton';
 
 
 const defaultTodos = [
-    { text: 'Cut Onion', completed: false },
-    { text: 'Take React course', completed: false },
-    { text: 'Cry with la Llorona', completed: true },
+    { text: 'These are example tasks!', completed: false },
+    { text: '<- Complete a task here', completed: false },
+    { text: 'Delete a task here ->', completed: false },
 ]
 
 function App() {
 
-    const [todos, setTodos] = React.useState(defaultTodos)
+    const localStorageTodos = localStorage.getItem('TODOS_V1');
+    let parsedTodos;
+    
+    if (!localStorageTodos) {
+        localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos));
+        parsedTodos = defaultTodos;
+    } else {
+        parsedTodos = JSON.parse(localStorageTodos);
+    }
+
+    const [todos, setTodos] = React.useState(parsedTodos)
     const [searchValue, setSearchValue] = React.useState('');
 
     let filteredTodos = [];
@@ -31,13 +41,20 @@ function App() {
         })
     }
 
+    const saveTodos = (newTodos) => {
+        const stringifiedTodo = JSON.stringify(newTodos);
+        localStorage.setItem('TODOS_V1', stringifiedTodo)
+
+        setTodos(newTodos)
+    }
+
     const updateTodoStatus = (todoText) => {
         const todoIndex = todos.findIndex(todo => todo.text === todoText);
         const updatedTodos = [...todos];
  
         updatedTodos[todoIndex].completed = !updatedTodos[todoIndex].completed;
 
-        setTodos(updatedTodos)
+        saveTodos(updatedTodos)
     }
 
     const deleteTodoItem = (todoText) => {
@@ -46,7 +63,7 @@ function App() {
  
         updatedTodos.splice(todoIndex, 1)
 
-        setTodos(updatedTodos)
+        saveTodos(updatedTodos)
     }
 
     return (

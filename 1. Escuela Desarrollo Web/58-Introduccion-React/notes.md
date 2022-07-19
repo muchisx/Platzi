@@ -202,3 +202,55 @@ Todas las propiedades las podemos mandar de dos formas, como lo vimos en la clas
 UI inspirations
 
 https://dona.ai/
+
+## **Persistencia de datos con Local Storage**
+
+API de almacenamiento web
+
+localStorage: guarda la información en memoria incluso cuando el navegador se cierre y se reabra.
+
+sesionStorage: uarda la informacion en memoria mientras dure la sesión de la página.
+
+Storage.setItem()
+cuando recibe un nombre y valor, lo almacena o actualiza si ya existe.
+
+Ejemplo:
+
+    storage.setItem(nombre, valor);
+
+Storage.getItem()
+
+Devuelve el valor cuando le pasamos el nombre.
+
+Ejemplo
+
+    let userBackground = storage.getItem(userBackground); 
+
+    // #000000
+
+Storage.removeItem()
+Elimina el valor almacenado cuando le pasamos el nombre:
+
+Ejemplo
+
+    let userBackground = storage.removeItem(userBackground); 
+
+    // Queda el valor por defecto en caso que exista, por lo ejemplo un background blanco.
+
+Storage.length
+Devuelve un entero que indica el número de elementos guardados en el objeto ** Storage.**
+
+Ejemplo
+
+    function userSettings() {
+    localStorage.setItem('userBackground', '#000000');
+    localStorage.setItem('font', comic sans');
+    localStorage.setItem('fontSize', '18');
+
+    localStorage.length;
+
+    // 3
+    }
+
+storage.clear();
+borra todos los registros guardados en local.
