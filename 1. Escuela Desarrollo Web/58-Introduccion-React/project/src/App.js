@@ -15,6 +15,7 @@ const defaultTodos = [
 ]
 
 function App() {
+    
 
     const localStorageTodos = localStorage.getItem('TODOS_V1');
     let parsedTodos;
