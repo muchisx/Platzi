@@ -1,30 +1,61 @@
 import React from 'react';
 
-const UseLocalStorage = (itemKey, itemInitialValue) => {
+const useLocalStorage = (itemKey, itemInitialValue) => {
 
-    const localStorageItem = localStorage.getItem(itemKey);
-    let parsedItem;
+    const [error, setError] = React.useState(false);
+    const [loading, setLoading] = React.useState(true);
+    const [item, setItem] = React.useState(itemInitialValue);
+     
+    React.useEffect(() => {
+        
+        setTimeout(() => {
+        
+            try {
 
-    if (!localStorageItem) {
-        localStorage.setItem(itemKey, JSON.stringify(itemInitialValue));
-        parsedItem = itemInitialValue;
-    } else {
-        parsedItem = JSON.parse(localStorageItem);
-    }
+                const localStorageItem = localStorage.getItem(itemKey);
+                let parsedItem;
+            
+                if (!localStorageItem) {
+                localStorage.setItem(itemKey, JSON.stringify(itemInitialValue));
+                parsedItem = itemInitialValue;
+                } else {
+                    parsedItem = JSON.parse(localStorageItem);
+                }
 
-    const [item, setItem] = React.useState(parsedItem)
+                setItem(parsedItem);
+            } 
+            catch(error) {
+            
+                setError(error);
+            } 
+            finally {
+
+                setLoading(false);
+            }
+        }, 1000);
+    }, [itemInitialValue, itemKey]);
+
 
     const saveItem = (newItem) => {
-        const stringifiedItem = JSON.stringify(newItem);
-        localStorage.setItem(itemKey, stringifiedItem)
+        try {
 
-        setItem(newItem)
+            const stringifiedItem = JSON.stringify(newItem);
+            localStorage.setItem(itemKey, stringifiedItem)
+
+            setItem(newItem)
+        } 
+        catch(error) {
+
+            setError(error);
+        }
     }
 
-    return [
+    return {
         item,
-        saveItem
-    ]
+        saveItem,
+        loading,
+        error
+    }
 }
 
-export default UseLocalStorage;
+export default useLocalStorage;
