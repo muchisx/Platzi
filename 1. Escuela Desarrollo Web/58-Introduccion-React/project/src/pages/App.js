@@ -1,66 +1,35 @@
 import '../assets/App.css';
 import React from 'react'
 import AppUi from './AppUI';
-import useLocalStorage from '../hooks/useLocalStorage'
+import { TodoContext, TodoProvider } from '../context/TodoContext';
 
 
-const defaultTodos = [
-    { text: 'These are example tasks!', completed: false },
-    { text: '<- Complete a task here', completed: false },
-    { text: 'Delete a task here ->', completed: false },
-]
+
 
 function App() {
 
-    const {
-        item: todos,
-        saveItem: saveTodos,
-        loading,
-        error
-    } = useLocalStorage('TODOS_V1', defaultTodos)
-    const [searchValue, setSearchValue] = React.useState('');
+    return (
 
-    let filteredTodos = [];
+        <TodoProvider>
 
-    if (!searchValue) filteredTodos = todos;
-    else {
-        filteredTodos = todos.filter(todo => {
+            <TodoContext.Consumer>
 
-        const todoText = todo.text.toLowerCase();
-        const searchText = searchValue.toLowerCase();
-        return todoText.includes(searchText)
-        })
-    }
+                {value => (
+                    <AppUi
+                    loading={value.loading}
+                    error={value.error}
+                    todos={value.todos}
+                    searchValue={value.searchValue}
+                    setSearchValue={value.setSearchValue}
+                    filteredTodos={value.filteredTodos}
+                    updateTodoStatus={value.updateTodoStatus}
+                    deleteTodoItem={value.deleteTodoItem}
+                    />
+                )}
 
-    const updateTodoStatus = (todoText) => {
-        const todoIndex = todos.findIndex(todo => todo.text === todoText);
-        const updatedTodos = [...todos];
- 
-        updatedTodos[todoIndex].completed = !updatedTodos[todoIndex].completed;
+            </TodoContext.Consumer>
 
-        saveTodos(updatedTodos)
-    }
-
-    const deleteTodoItem = (todoText) => {
-        const todoIndex = todos.findIndex(todo => todo.text === todoText);
-        const updatedTodos = [...todos];
- 
-        updatedTodos.splice(todoIndex, 1)
-
-        saveTodos(updatedTodos)
-    }
-
-    return (    
-        <AppUi
-            loading={loading}
-            error={error}
-            todos={todos}
-            searchValue={searchValue}
-            setSearchValue={setSearchValue}
-            filteredTodos={filteredTodos}
-            updateTodoStatus={updateTodoStatus}
-            deleteTodoItem={deleteTodoItem}
-        />
+        </TodoProvider>
     );
 }
 
