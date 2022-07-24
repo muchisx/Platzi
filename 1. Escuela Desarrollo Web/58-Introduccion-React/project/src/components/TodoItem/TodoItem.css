@@ -2,9 +2,11 @@
 .todo-item {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     
     width: 100%;
     padding: 12px;
+    overflow: hidden;
     
     border-radius: 12px;
     background-color: white;
@@ -18,7 +20,9 @@
     }
 
     .todo-item__text {
-
+        width: 80%;
+        word-wrap: break-word;
+        text-align: center;
     }
 
     .--completed {

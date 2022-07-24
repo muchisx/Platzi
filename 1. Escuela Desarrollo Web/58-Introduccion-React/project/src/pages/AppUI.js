@@ -6,6 +6,7 @@ import TodoSearch from '../components/TodoSearch/TodoSearch';
 import TodoList from '../components/TodoList/TodoList';
 import TodoItem from '../components/TodoItem/TodoItem';
 import CreateTodoButton from '../components/CreateTodoButton/CreateTodoButton';
+import NewTodoModal from '../components/newTodoModal/newTodoModal';
 
 const AppUI = () => {
 
@@ -17,46 +18,53 @@ const AppUI = () => {
         setSearchValue,
         filteredTodos,
         updateTodoStatus,
-        deleteTodoItem, 
+        deleteTodoItem,
+        modalOpenState,
     } = React.useContext(TodoContext)
 
     return (
-        
-        <main className="main-container">
-            
-            <TodoTitle />
 
-            {error && <p>There was an error, reload the page or try later.</p>}
-            {loading && <p>We're loading tasks...</p>}
-            
-            {!loading && 
+        <>
 
-                <>
-                    <TodoCounter todos={todos}/>
-                    
-                    <TodoSearch 
-                        searchValue={searchValue} 
-                        setSearchValue={setSearchValue}
-                    />
+            {modalOpenState && <NewTodoModal/>}
 
-                    {!filteredTodos.length && <p>Create your first Task!</p>}
-                    
-                    <TodoList>
-                        {filteredTodos.map(todo => 
-                            <TodoItem 
-                                text={todo.text} 
-                                key={todo.text} 
-                                completed={todo.completed}
-                                updateTodoStatus={() => updateTodoStatus(todo.text)}
-                                deleteTodoItem={() => deleteTodoItem(todo.text)}
-                            />)}
-                    </TodoList>
+            <main className="main-container">
+                
+                <TodoTitle />
 
-                    <CreateTodoButton />
-                </>
-            }
+                {error && <p>There was an error, reload the page or try later.</p>}
+                {loading && <p>We're loading tasks...</p>}
+                
+                {!loading && 
 
-        </main>
+                    <>
+                        <TodoCounter todos={todos}/>
+                        
+                        <TodoSearch 
+                            searchValue={searchValue} 
+                            setSearchValue={setSearchValue}
+                        />
+
+                        {!filteredTodos.length && <p>Create your first Task!</p>}
+                        
+                        <TodoList>
+                            {filteredTodos.map(todo => 
+                                <TodoItem 
+                                    text={todo.text} 
+                                    key={todo.text} 
+                                    completed={todo.completed}
+                                    updateTodoStatus={() => updateTodoStatus(todo.text)}
+                                    deleteTodoItem={() => deleteTodoItem(todo.text)}
+                                />)}
+                        </TodoList>
+
+                        <CreateTodoButton />
+                    </>
+                }
+
+            </main>
+
+        </>
     );
 }
 
