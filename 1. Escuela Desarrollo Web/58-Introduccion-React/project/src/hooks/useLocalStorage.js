@@ -32,7 +32,7 @@ const useLocalStorage = (itemKey, itemInitialValue) => {
 
                 setLoading(false);
             }
-        }, 1000);
+        }, 2000);
     }, [itemInitialValue, itemKey]);
 
 

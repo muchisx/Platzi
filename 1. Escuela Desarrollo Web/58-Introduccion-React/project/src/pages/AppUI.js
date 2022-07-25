@@ -7,6 +7,7 @@ import TodoList from '../components/TodoList/TodoList';
 import TodoItem from '../components/TodoItem/TodoItem';
 import CreateTodoButton from '../components/CreateTodoButton/CreateTodoButton';
 import NewTodoModal from '../components/newTodoModal/newTodoModal';
+import TodoContentLoader from '../components/TodoContentLoader/TodoContentLoader';
 
 const AppUI = () => {
 
@@ -33,7 +34,7 @@ const AppUI = () => {
                 <TodoTitle />
 
                 {error && <p>There was an error, reload the page or try later.</p>}
-                {loading && <p>We're loading tasks...</p>}
+                {loading && <TodoContentLoader/>}
                 
                 {!loading && 
 
