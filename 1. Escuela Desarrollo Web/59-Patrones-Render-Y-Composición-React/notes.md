@@ -109,3 +109,90 @@ Tu trabajo
 Depuración
 
 React te dejará migajas de pan o rastros donde podrás encontrar errores de tu aplicación, como ser errores del lenguaje, framework o incluso lógica
+
+## **Qué es composición de componentes y colocación del estado**
+
+Un componente en React está conformado por elementos que son etiquetas HTML, estos componentes pueden ser solo estéticos(stateless) o pueden ser interactivos(stateful). Para que los componentes interactivos respondan y hagan una algo podemos programar todo lo que hace dentro de él o, en otro caso, si lo que hace depende de otro componente, entonces tenemos que poder recibir estos datos de alguna manera.
+
+Para enviar datos de un componente a otro usamos props que viajan desde el componente más arriba en la anidación hasta el componente objetivo, por el camino estas props pueden pasar por componentes que no las van a usar o simplemente son stateless( solo estéticos ), esto puede afectar el rendimiento y es un poco enredado. Para evitar esto tenemos 2 formas el contexto y la composición de componentes.
+
+El contexto hace que el componente que tiene que recibir la información la reciba directo del que la envía( es como una relación uno a muchos ) Lo malo del contexto es que añade un poco de complejidad a nuestro código.
+
+La forma recomendada por React es la Composición de Componentes. Según el modelo atómico: cuando agrupamos varios componentes tenemos moléculas y luego si agrupamos varias de estas tenemos organismos y así hasta construir templates y páginas. Entonces sí tomas todos los componentes de tu app y los traes al componente App, todos en un solo archivo con sus correspondientes anidaciones y jerarquías, tendríamos una composición de componente enorme, pero si además escribes los estados y se los pasas a los componentes que los necesitan, estaríamos logrando lo que queríamos hacer.
+
+Un archivo con una composición de componentes tan grande es complicado de entender, por esa razón en función de las necesidades de mi app haría composición de componentes en el nivel organismo y luego en función de la cantidad de organismos que tenga vuelvo a hacer composición de componentes en el nivel template y así sucesivamente hasta llegar al componente App con una composición de componentes de muchas Pages (dado el caso)
+
+Incluso haciendo esto necesitaría usar Contexto entre composiciones para evitar el uso de props (aunque no es malo usarlas cuando su trayecto es corto). La implementación es muy relativa pero sin duda la composición de componentes juega un papel fundamental en la construcción de UI con React.
+
+## **Composición y colocación del estado en React**
+
+En resumen:
+
+⭐️ Cuando los componentes nietos de App no solo son nietos, sino también componentes hijos, podemos pasarles props directamente y mejorar su comunicación.
+
+–
+
+Casi siempre que llamamos a un componente… pos lo llamamos y ya. 😅
+
+        function App() {
+        return (
+            <TodoHeader />
+        );
+        }
+
+        function TodoHeader() {
+        return (
+            <TodoCounter />
+        );
+        }
+
+Esto implica que para compartir el estado debemos pasar props y props y props por cada componente intermedio entre App y los componentes que realmente necesiten esas props en cualquier lugar de la jerarquía. 😓
+
+        function App() {
+        const [state, setState] = React.setState(initialState);
+
+        return (
+            <TodoHeader state={state} setState={setState} />
+        );
+        }
+
+        function TodoHeader({ state, setState }) {
+        return (
+            <header>
+            <TodoCounter state={state} setState={setState} />
+            </header>
+        );
+        }
+
+Pero otra forma de trabajar es que App no solo llame a sus componentes directamente hijos, sino que también llamen a los siguientes componentes en la jerarquía de la aplicación. 😮
+
+        function App() {
+        return (
+            <TodoHeader>
+            <TodoCounter />
+            </TodoHeader>
+        );
+        }
+
+        function TodoHeader({ children }) {
+        return (
+            <header>
+            {children}
+            </header>
+        );
+        }
+
+Y esta nueva forma de trabajar implica que ya no tenemos que pasar props y props y props entre App y el resto de componentes para compartir el estado, sino que App puede comunicarse directamente con el componente que realmente necesita ese estado. 🤩
+
+        function App() {
+        const [state, setState] = React.setState(initialState);
+
+        return (
+            <TodoHeader>
+            <TodoCounter state={state} setState={setState} />
+            </TodoHeader>
+        );
+        }
+
+--
+
