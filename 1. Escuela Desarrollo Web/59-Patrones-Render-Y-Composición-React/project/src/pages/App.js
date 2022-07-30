@@ -53,7 +53,7 @@ function App() {
                             setSearchValue={setSearchValue}
                         />
 
-                        {!filteredTodos.length && <p>Create your first Task!</p>}
+                        {!filteredTodos.length && <p className='new-todo-modal__title'>Create your first <span>Task!</span></p>}
                         
                         <TodoList>
                             {filteredTodos.map(todo => 
