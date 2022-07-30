@@ -51,9 +51,11 @@ function App() {
                         <TodoSearch 
                             searchValue={searchValue} 
                             setSearchValue={setSearchValue}
+                            todos={todos}
                         />
 
-                        {!filteredTodos.length && <p className='new-todo-modal__title'>Create your first <span>Task!</span></p>}
+                        {!todos.length && <p className='empty-state-text'>Create your first <span>Task!</span></p>}
+                        {(!filteredTodos.length && !!todos.length) && <p className='empty-state-text'>None of your <span>Tasks</span> matches: <br/> 🔎<i> '{searchValue}'.</i></p>}
                         
                         <TodoList>
                             {filteredTodos.map(todo => 

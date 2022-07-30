@@ -16,3 +16,13 @@
     text-align: center;
     user-select: none;
 }
+
+.todo-search:disabled {
+
+    filter: blur(1px);
+}
+
+.todo-search:disabled::placeholder {
+
+    opacity: 0.6;
+}
