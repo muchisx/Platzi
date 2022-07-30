@@ -56,16 +56,34 @@ function App() {
 
                         {!todos.length && <p className='empty-state-text'>Create your first <span>Task!</span></p>}
                         {(!filteredTodos.length && !!todos.length) && <p className='empty-state-text'>None of your <span>Tasks</span> matches: <br/> 🔎<i> '{searchValue}'.</i></p>}
+
+                        <TodoList
                         
-                        <TodoList>
-                            {filteredTodos.map(todo => 
+                            loading={loading}
+                            // /* ----OPTION 1---------- TodoItems rendered with render props ------------------- */
+                            onRender={filteredTodos.map(todo => 
                                 <TodoItem 
                                     text={todo.text} 
                                     key={todo.text} 
                                     completed={todo.completed}
                                     updateTodoStatus={() => updateTodoStatus(todo.text)}
                                     deleteTodoItem={() => deleteTodoItem(todo.text)}
-                                />)}
+                                />
+                            )}
+                        >
+                            
+
+                            {/* ----OPTION 2---------- TodoItems rendered as children -------------------*/}
+                            {/* {filteredTodos.map(todo => 
+                                <TodoItem 
+                                    text={todo.text} 
+                                    key={todo.text} 
+                                    completed={todo.completed}
+                                    updateTodoStatus={() => updateTodoStatus(todo.text)}
+                                    deleteTodoItem={() => deleteTodoItem(todo.text)}
+                                />
+                            )} */}
+
                         </TodoList>
 
                         <CreateTodoButton modalOpenState={modalOpenState} setModalOpenState={setModalOpenState}/>
