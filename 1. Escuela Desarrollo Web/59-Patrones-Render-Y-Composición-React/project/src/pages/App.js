@@ -11,6 +11,7 @@ import TodoList from '../components/TodoList/TodoList';
 import TodoItem from '../components/TodoItem/TodoItem';
 import CreateTodoButton from '../components/CreateTodoButton/CreateTodoButton';
 import NewTodoModal from '../components/newTodoModal/newTodoModal';
+import ChangeAlertModalwithStorageListener from '../components/ChangeAlertModal/ChangeAlertModal';
 import TodoContentLoader from '../components/TodoContentLoader/TodoContentLoader';
 
 
@@ -28,7 +29,8 @@ function App() {
         deleteTodoItem,
         modalOpenState,
         setModalOpenState,
-        addTodoItem
+        addTodoItem,
+        syncronizeTodos,
     } = useTodosProps()
 
     return (
@@ -36,6 +38,7 @@ function App() {
         <>
 
             {modalOpenState && <NewTodoModal modalOpenState={modalOpenState} setModalOpenState={setModalOpenState} addTodoItem={addTodoItem}/>}
+            {<ChangeAlertModalwithStorageListener syncronizeTodos={syncronizeTodos}/>}
 
             <main className="main-container">
                 

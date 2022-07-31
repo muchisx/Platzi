@@ -14,6 +14,7 @@ const useTodosProps = () => {
     const {
         item: todos,
         saveItem: saveTodos,
+        syncronizeItem: syncronizeTodos,
         loading,
         error
     } = useLocalStorage('TODOS_V1', defaultTodos)
@@ -75,6 +76,7 @@ const useTodosProps = () => {
         deleteTodoItem,
         modalOpenState,
         setModalOpenState,
+        syncronizeTodos,
     })
 }
 
