@@ -63,7 +63,7 @@ const useLocalStorage = (itemKey, itemInitialValue) => {
         saveItem,
         loading,
         error,
-        syncronizeItem
+        syncronizeItem,
     }
 }
 

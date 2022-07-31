@@ -1,3 +1,16 @@
+
+
+
+
+
+
+// This file has been deprecated in favor of the custom hook useStorageListener instead.
+// Keeping it here for education.
+
+
+
+
+
 import React from 'react';
 
 const withStorageListener = (WrappedComponent) => {

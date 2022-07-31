@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './ChangeAlertModal.css'
-import withStorageListener from './withStorageListener';
+import useStorageListener from '../../hooks/useStorageListener';
 
-const ChangeAlertModal = ({ synchronizedState, setSynchronizedState }) => {
+const ChangeAlertModal = ({ syncronizeTodos }) => {
+
+    const {synchronizedState, toggleSyncState} = useStorageListener(syncronizeTodos);
 
     if (synchronizedState) return null
     else {
@@ -14,8 +16,8 @@ const ChangeAlertModal = ({ synchronizedState, setSynchronizedState }) => {
 
                 <div className='change-alert-modal'>
 
-                    <p className='change-alert-modal__message'>Your <span>Tasks</span> are not synchronized!</p>
-                    <button className='change-alert-modal__button' onClick={() => setSynchronizedState(true)}>Refresh</button>
+                    <p className='change-alert-modal__message'>Your <span>Tasks</span> are outdated!</p>
+                    <button className='change-alert-modal__button' onClick={() => toggleSyncState(true)}>Refresh</button>
 
                 </div>
 
@@ -25,9 +27,6 @@ const ChangeAlertModal = ({ synchronizedState, setSynchronizedState }) => {
         );
     }
 
-
 }
 
-const ChangeAlertModalwithStorageListener = withStorageListener(ChangeAlertModal);
-
-export default ChangeAlertModalwithStorageListener;
+export default ChangeAlertModal;
