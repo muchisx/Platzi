@@ -196,3 +196,35 @@ Y esta nueva forma de trabajar implica que ya no tenemos que pasar props y props
 
 --
 
+## **React.Children y React.cloneElement**
+
+11.-React.Children y React.cloneElement
+
+Para poder pasar propiedades especiales a los componentes hijos de nuestros componentes contenedores cuando hacemos composición.
+
+Cuando enviamos más de un componente o elemento hijo al que use CloneElement, la app deja de funcionar y suelta un error. CloneElement necesita recibir un elemento de react, cuando children es más de un componente entonces tenemos un array, para esto existe React.Children que nos ayuda a que CloneElement entienda sin importar cuantos elementos vienen en el props.children.
+
+        function TodoHeader({ children, loading }) {
+
+        return (
+            <header>
+            {React.Children.toArray(children).map((child) =>
+                React.cloneElement(child, { loading: loading })
+            )}
+            </header> //Por cada child vamos a llamar a clone element.
+        ); //Crear elemento a partir de otro (elemento, objeto con las props que queramos que tenga)
+        }
+
+No son las herramientas más populares pero pueden ser muy útiles cuando queremos compartir una o ciertas props a los componentes hijos de un componente contenedor.
+
+--
+
+React.cloneElement
+
+Con esta característica de React podemos crear elementos de Nodos React
+
+Cabe aclarar que esta funciona con un unico nodo, en caso de aplicarla en un conjunto de los mismos podemos ayudarnos de React.Children
+
+React.Children
+
+Nos permite manipular la prop children entre uno de sus usos podemos volver un conjunto de nodos react a un array

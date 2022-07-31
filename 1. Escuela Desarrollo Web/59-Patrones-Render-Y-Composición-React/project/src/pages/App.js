@@ -4,6 +4,7 @@ import React from 'react'
 import { useTodosProps } from '../hooks/useTodosProps';
 
 import TodoTitle from '../components/TodoTitle/TodoTitle';
+import TodoHeader from '../components/TodoHeader/TodoHeader';
 import TodoCounter from '../components/TodoCounter/TodoCounter';
 import TodoSearch from '../components/TodoSearch/TodoSearch';
 import TodoList from '../components/TodoList/TodoList';
@@ -46,13 +47,17 @@ function App() {
                 {!loading && 
 
                     <>
-                        <TodoCounter todos={todos}/>
-                        
-                        <TodoSearch 
+
+                        <TodoHeader
                             searchValue={searchValue} 
                             setSearchValue={setSearchValue}
                             todos={todos}
-                        />
+                        >
+
+                            <TodoCounter/>
+                            <TodoSearch/>
+
+                        </TodoHeader>
 
                         {!todos.length && <p className='empty-state-text'>Create your first <span>Task!</span></p>}
                         {(!filteredTodos.length && !!todos.length) && <p className='empty-state-text'>None of your <span>Tasks</span> matches: <br/> 🔎<i> '{searchValue}'.</i></p>}
